@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'sql/database.php';
 session_start();
 ?>
 <!DOCTYPE html>
