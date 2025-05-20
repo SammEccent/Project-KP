@@ -1,4 +1,10 @@
 <!-- frontend/footer.php -->
+<?php
+// Pastikan session sudah dimulai
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <footer>
     <div class="container" id="footer-content">
         <div class="footer-content">
@@ -11,7 +17,7 @@
             <div class="footer-contact">
                 <h3>Kontak</h3>
                 <p><i class="fas fa-phone"></i> (021) 543-XXXX</p>
-                <p><i class="fas fa-envelope"></i> kelurahan.Lengkong Wetan@jakarta.go.id</p>
+                <p><i class="fas fa-envelope"></i> kelurahan.Lengkong_Wetan@jakarta.go.id</p>
                 <p><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 16:00</p>
             </div>
             <div class="footer-social">
