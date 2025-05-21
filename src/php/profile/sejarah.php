@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../../config/config.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -12,9 +12,9 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php include '../navbar.php'; ?>
+    <?php include '../../components/navbar.php'; ?>
     
-    <main>
+    <main class="main-content">
         <section class="sejarah-section">
             <div class="container">
                 <h2>Sejarah Kelurahan Lengkong Wetan</h2>
@@ -34,6 +34,6 @@ session_start();
         </section>
     </main>
 
-    <?php include '../footer.php'; ?>
+    <?php include '../../components/footer.php'; ?>
 </body>
 </html>

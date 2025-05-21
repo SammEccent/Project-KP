@@ -1,5 +1,5 @@
 <?php
-require_once '../config/database.php';
+require_once '../../config/database.php';
 $base_url = '../../';
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ $base_url = '../../';
     </style>
 </head>
 <body>
-    <?php include '../components/navbar.php'; ?>
+    <?php include '../../components/navbar.php'; ?>
 
     <main class="main-content">
         <section class="facility-section">

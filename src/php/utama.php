@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once '../config/database.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -74,6 +74,6 @@ session_start();
         </section>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include '../components/footer.php'; ?>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
-require_once '../config/database.php';
+require_once '../../config/database.php';
 $base_url = '../../';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ $base_url = '../../';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php include '../components/navbar.php'; ?>
+    <?php include '../../components/navbar.php'; ?>
 
     <main class="main-content">
         <section class="facility-section">
@@ -23,27 +24,38 @@ $base_url = '../../';
                 
                 <div class="facility-grid">
                     <?php
-                    $query = "SELECT * FROM fasilitas_kesehatan WHERE status = 'aktif' ORDER BY nama_fasilitas ASC";
-                    $result = mysqli_query($conn, $query);
+                    // Pastikan $conn tersedia setelah require_once
+                    if (isset($conn) && $conn) {
+                        $query = "SELECT * FROM fasilitas_kesehatan WHERE status = 'aktif' ORDER BY nama_fasilitas ASC";
+                        $result = mysqli_query($conn, $query);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            ?>
-                            <div class="facility-card">
-                                <img src="<?php echo $base_url; ?>assets/images/fasilitas/kesehatan/<?php echo strtolower(str_replace(' ', '-', $row['nama_fasilitas'])); ?>.jpg" 
-                                     alt="<?php echo htmlspecialchars($row['nama_fasilitas']); ?>"
-                                     onerror="this.src='<?php echo $base_url; ?>assets/images/placeholder.jpg'">
-                                <div class="facility-info">
-                                    <h3><?php echo htmlspecialchars($row['nama_fasilitas']); ?></h3>
-                                    <p><i class="fas fa-hospital"></i> <?php echo htmlspecialchars($row['jenis_fasilitas']); ?></p>
-                                    <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($row['alamat']); ?></p>
-                                    <p><i class="fas fa-phone"></i> <?php echo htmlspecialchars($row['kontak']); ?></p>
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <div class="facility-card">
+                                    <img src="<?php echo $base_url; ?>assets/images/fasilitas/kesehatan/<?php echo strtolower(str_replace(' ', '-', $row['nama_fasilitas'])); ?>.jpg" 
+                                         alt="<?php echo htmlspecialchars($row['nama_fasilitas']); ?>"
+                                         onerror="this.src='<?php echo $base_url; ?>assets/images/placeholder.jpg'">
+                                    <div class="facility-info">
+                                        <h3><?php echo htmlspecialchars($row['nama_fasilitas']); ?></h3>
+                                        <p><i class="fas fa-hospital"></i> <?php echo htmlspecialchars($row['jenis_fasilitas']); ?></p>
+                                        <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($row['alamat']); ?></p>
+                                        <p><i class="fas fa-phone"></i> <?php echo htmlspecialchars($row['kontak']); ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <?php
+                                <?php
+                            }
+                        } else {
+                             if (!$result) {
+                                echo '<p class="no-data">Error query: ' . mysqli_error($conn) . '</p>';
+                             } else {
+                                echo '<p class="no-data">Belum ada data fasilitas kesehatan yang tersedia.</p>';
+                             }
                         }
+                         // Tutup koneksi setelah selesai
+                         mysqli_close($conn);
                     } else {
-                        echo '<p class="no-data">Belum ada data fasilitas kesehatan yang tersedia.</p>';
+                         echo '<p class="no-data">Gagal terhubung ke database.</p>';
                     }
                     ?>
                 </div>
@@ -51,6 +63,6 @@ $base_url = '../../';
         </section>
     </main>
 
-    <?php include '../components/footer.php'; ?>
+    <?php include '../../components/footer.php'; ?>
 </body>
 </html> 

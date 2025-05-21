@@ -1,5 +1,6 @@
 <?php
-require_once '../config.php';
+require_once '../../config/database.php';
+$base_url = '../../';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php include '../navbar.php'; ?>
+<?php include '../../components/navbar.php'; ?>
 
     <main>
         <section class="visi-misi-section">
@@ -40,6 +41,6 @@ session_start();
         </section>
     </main>
 
-    <?php include '../footer.php'; ?>
+    <?php include '../../components/footer.php'; ?>
 </body>
 </html> 
