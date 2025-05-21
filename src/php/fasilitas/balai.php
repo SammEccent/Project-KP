@@ -1,71 +1,93 @@
 <?php
-$base_url = '../';
-require_once '../config.php';
-require_once '../navbar.php';
+require_once '../config/database.php';
+$base_url = '../../';
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fasilitas Balai Desa - Kelurahan Lengkong Wetan</title>
-    <link rel="stylesheet" href="../css/utama.css">
-    <link rel="stylesheet" href="../css/fasilitas.css">
+    <title>Fasilitas Balai - Kelurahan Lengkong Wetan</title>
+    <link rel="stylesheet" href="<?php echo $base_url; ?>css/utama.css">
+    <link rel="stylesheet" href="<?php echo $base_url; ?>css/fasilitas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .facility-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .facility-table th,
+        .facility-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .facility-table th {
+            background-color: #FF5722;
+            color: white;
+            font-weight: 600;
+        }
+
+        .facility-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .facility-table td i {
+            margin-right: 8px;
+            color: #FF5722;
+        }
+
+        @media screen and (max-width: 768px) {
+            .facility-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main class="container">
+    <?php include '../components/navbar.php'; ?>
+
+    <main class="main-content">
         <section class="facility-section">
-            <h2>Fasilitas Balai Desa</h2>
-            <div class="facility-grid">
-                <div class="facility-card">
-                    <img src="<?php echo $base_url; ?>assets/images/balai-utama.jpg" alt="Balai Utama">
-                    <div class="facility-info">
-                        <h3>Balai Utama Kelurahan</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Jl. Lengkong Wetan No. 90</p>
-                        <p><i class="fas fa-phone"></i> (021) 543-IIII</p>
-                        <p><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 16:00</p>
-                        <p>Balai utama untuk kegiatan administrasi dan pelayanan masyarakat.</p>
-                    </div>
-                </div>
+            <div class="container">
+                <h2>Fasilitas Balai</h2>
+                
+                <div class="facility-grid">
+                    <?php
+                    $query = "SELECT * FROM fasilitas_balai WHERE status = 'aktif' ORDER BY nama_fasilitas ASC";
+                    $result = mysqli_query($conn, $query);
 
-                <div class="facility-card">
-                    <img src="<?php echo $base_url; ?>assets/images/balai-pertemuan.jpg" alt="Balai Pertemuan">
-                    <div class="facility-info">
-                        <h3>Balai Pertemuan</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Jl. Lengkong Wetan No. 91</p>
-                        <p><i class="fas fa-phone"></i> (021) 543-JJJJ</p>
-                        <p><i class="fas fa-clock"></i> Setiap Hari: 08:00 - 21:00</p>
-                        <p>Ruang pertemuan dengan kapasitas 200 orang untuk berbagai acara.</p>
-                    </div>
-                </div>
-
-                <div class="facility-card">
-                    <img src="<?php echo $base_url; ?>assets/images/balai-kesehatan.jpg" alt="Balai Kesehatan">
-                    <div class="facility-info">
-                        <h3>Balai Kesehatan</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Jl. Lengkong Wetan No. 92</p>
-                        <p><i class="fas fa-phone"></i> (021) 543-KKKK</p>
-                        <p><i class="fas fa-clock"></i> Senin - Jumat: 08:00 - 16:00</p>
-                        <p>Fasilitas kesehatan dasar dan posyandu untuk warga.</p>
-                    </div>
-                </div>
-
-                <div class="facility-card">
-                    <img src="<?php echo $base_url; ?>assets/images/balai-olahraga.jpg" alt="Balai Olahraga">
-                    <div class="facility-info">
-                        <h3>Balai Olahraga</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Jl. Lengkong Wetan No. 93</p>
-                        <p><i class="fas fa-phone"></i> (021) 543-LLLL</p>
-                        <p><i class="fas fa-clock"></i> Setiap Hari: 06:00 - 21:00</p>
-                        <p>Fasilitas olahraga indoor dengan berbagai peralatan olahraga.</p>
-                    </div>
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                            <div class="facility-card">
+                                <img src="<?php echo $base_url; ?>assets/images/fasilitas/balai/<?php echo strtolower(str_replace(' ', '-', $row['nama_fasilitas'])); ?>.jpg" 
+                                     alt="<?php echo htmlspecialchars($row['nama_fasilitas']); ?>"
+                                     onerror="this.src='<?php echo $base_url; ?>assets/images/placeholder.jpg'">
+                                <div class="facility-info">
+                                    <h3><?php echo htmlspecialchars($row['nama_fasilitas']); ?></h3>
+                                    <p><i class="fas fa-building"></i> <?php echo htmlspecialchars($row['jenis_fasilitas']); ?></p>
+                                    <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($row['alamat']); ?></p>
+                                    <p><i class="fas fa-phone"></i> <?php echo htmlspecialchars($row['kontak']); ?></p>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    } else {
+                        echo '<p class="no-data">Belum ada data fasilitas balai yang tersedia.</p>';
+                    }
+                    ?>
                 </div>
             </div>
         </section>
     </main>
 
-    <?php require_once '../footer.php'; ?>
+    <?php include '../components/footer.php'; ?>
 </body>
 </html> 

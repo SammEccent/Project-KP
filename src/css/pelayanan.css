@@ -1,0 +1,121 @@
+/* Style untuk halaman pelayanan */
+.service-section {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+}
+
+.service-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 32px;
+    position: relative;
+}
+
+.service-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+}
+
+.service-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.service-steps {
+    margin-top: 30px;
+}
+
+.step-item {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.step-content p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.requirements-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.requirements-list li {
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.requirements-list li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.service-note {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
+}
+
+.service-note p {
+    color: #856404;
+    margin: 0;
+}
+
+.service-note p i {
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-content {
+        padding: 20px;
+    }
+
+    .step-item {
+        flex-direction: column;
+    }
+
+    .step-number {
+        margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+        font-size: 18px;
+    }
+} 

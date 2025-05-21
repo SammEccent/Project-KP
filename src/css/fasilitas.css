@@ -1,12 +1,12 @@
 /* Style untuk halaman fasilitas */
 .facility-section {
     padding: 60px 0;
-    background-color: var(--light-gray);
+    background-color: #f5f5f5;
 }
 
 .facility-section h2 {
     text-align: center;
-    color: var(--primary-color);
+    color: #2c3e50;
     margin-bottom: 40px;
     font-size: 32px;
     position: relative;
@@ -17,7 +17,7 @@
     display: block;
     width: 80px;
     height: 3px;
-    background-color: var(--accent-color);
+    background-color: #e74c3c;
     margin: 15px auto 0;
 }
 
@@ -26,14 +26,15 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 30px;
+    padding: 0 20px;
 }
 
 .facility-card {
-    background: var(--white);
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: var(--transition);
+    transition: transform 0.3s ease;
 }
 
 .facility-card:hover {
@@ -52,22 +53,67 @@
 }
 
 .facility-info h3 {
-    color: var(--primary-color);
+    color: #2c3e50;
     margin-bottom: 15px;
     font-size: 20px;
 }
 
 .facility-info p {
     margin-bottom: 10px;
-    color: var(--dark-gray);
+    color: #666;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .facility-info p i {
-    color: var(--primary-color);
+    color: #e74c3c;
     width: 20px;
+}
+
+/* Style untuk tabel fasilitas */
+.facility-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.facility-table th,
+.facility-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.facility-table th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: 600;
+}
+
+.facility-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.facility-table .status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.facility-table .status.aktif {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.facility-table .status.nonaktif {
+    background-color: #e74c3c;
+    color: #fff;
 }
 
 /* Responsive Design */
@@ -82,5 +128,16 @@
 
     .facility-info h3 {
         font-size: 18px;
+    }
+
+    .facility-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .facility-table th,
+    .facility-table td {
+        padding: 10px;
+        font-size: 14px;
     }
 } 

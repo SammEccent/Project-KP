@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Pastikan variabel $base_url sudah didefinisikan
 if (!isset($base_url)) {
-    require_once 'config.php';
+    require_once 'config/config.php';
 }
 ?>
 <header>

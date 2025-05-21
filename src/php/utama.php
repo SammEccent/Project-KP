@@ -1,5 +1,5 @@
 <?php
-require_once 'database.php';
+require_once 'config/database.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include '../components/navbar.php'; ?>
 
     <main>
         <section class="hero">
