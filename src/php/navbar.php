@@ -14,7 +14,7 @@ if (!isset($base_url)) {
     <div class="header-top">
         <div class="container">
             <div class="logo">
-                <img src="../assets/images/logo-jakarta.png" alt="Logo Jakarta">
+                <img src="../assets/images/logo-kelurahan.png" alt="Logo lengkong wetan">
                 <h1>Kelurahan Lengkong Wetan</h1>
             </div>
             <div class="contact-info">

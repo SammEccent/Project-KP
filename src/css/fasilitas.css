@@ -1,0 +1,86 @@
+/* Style untuk halaman fasilitas */
+.facility-section {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+}
+
+.facility-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 32px;
+    position: relative;
+}
+
+.facility-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.facility-card {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.facility-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.facility-info {
+    padding: 20px;
+}
+
+.facility-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.facility-info p {
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.facility-info p i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-card img {
+        height: 180px;
+    }
+
+    .facility-info h3 {
+        font-size: 18px;
+    }
+} 
