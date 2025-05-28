@@ -26,7 +26,7 @@ if (!isset($base_url)) {
     <nav>
         <div class="container">
             <ul class="main-menu">
-                <li><a href="../php/utama.php">Beranda</a></li>
+            <li><a href="index.php?page=utama">Beranda</a></li>
                 <li class="has-submenu">
                     <a href="../profile/sejarah.php">Profil</a>
                     <ul class="submenu">
