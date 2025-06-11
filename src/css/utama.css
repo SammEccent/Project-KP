@@ -110,23 +110,23 @@ nav {
 }
 
 .submenu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: var(--white);
     min-width: 200px;
     box-shadow: var(--shadow);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: var(--transition);
-    list-style: none;
+    z-index: 1000;
+    border-radius: 0 0 4px 4px;
 }
 
 .has-submenu:hover .submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: block;
+}
+
+.submenu li {
+    list-style: none;
 }
 
 .submenu li a {
@@ -135,6 +135,11 @@ nav {
     color: var(--text-color);
     text-decoration: none;
     transition: var(--transition);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.submenu li:last-child a {
+    border-bottom: none;
 }
 
 .submenu li a:hover {
@@ -346,20 +351,18 @@ section h2::after {
     
     .submenu {
         position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
+        width: 100%;
+        box-shadow: none;
         background-color: var(--secondary-color);
-    }
-    
-    .has-submenu:hover .submenu {
-        display: block;
     }
     
     .submenu li a {
         color: var(--white);
         padding-left: 40px;
+    }
+    
+    .submenu li a:hover {
+        background-color: var(--primary-color);
     }
     
     .hero h2 {
