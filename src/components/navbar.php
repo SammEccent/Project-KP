@@ -26,7 +26,7 @@ if (!isset($base_url)) {
     <nav>
         <div class="container">
             <ul class="main-menu">
-                <li><a href="index.php?page=utama">Beranda</a></li>
+            <li><a href="index.php?page=utama">Beranda</a></li>
                 <li class="has-submenu">
                     <a href="../profile/sejarah.php">Profil</a>
                     <ul class="submenu">
@@ -62,39 +62,3 @@ if (!isset($base_url)) {
         </div>
     </nav>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Menangani dropdown menu pada mobile
-    const submenuItems = document.querySelectorAll('.has-submenu > a');
-    
-    submenuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const submenu = this.nextElementSibling;
-                const isOpen = submenu.style.display === 'block';
-                
-                // Tutup semua submenu yang terbuka
-                document.querySelectorAll('.submenu').forEach(menu => {
-                    menu.style.display = 'none';
-                });
-                
-                // Toggle submenu yang diklik
-                submenu.style.display = isOpen ? 'none' : 'block';
-            }
-        });
-    });
-
-    // Menutup submenu saat mengklik di luar menu
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            if (!e.target.closest('.has-submenu')) {
-                document.querySelectorAll('.submenu').forEach(menu => {
-                    menu.style.display = 'none';
-                });
-            }
-        }
-    });
-});
-</script>
