@@ -70,8 +70,8 @@ body {
     color: var(--dark-gray);
 }
 
-/* Navigation */
-nav {
+/* Navbar Styles */
+.navbar {
     background-color: var(--primary-color);
     padding: 0;
     position: sticky;
@@ -79,19 +79,56 @@ nav {
     z-index: 1000;
 }
 
-.main-menu {
-    list-style: none;
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.main-menu > li {
+.navbar-brand {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 15px 0;
+}
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-menu li {
     position: relative;
 }
 
-.main-menu > li > a {
+.navbar-menu a {
     display: block;
     color: var(--white);
     text-decoration: none;
@@ -100,16 +137,30 @@ nav {
     transition: var(--transition);
 }
 
-.main-menu > li:hover > a {
+.navbar-menu a:hover {
     background-color: var(--secondary-color);
 }
 
-/* Submenu */
-.has-submenu {
+/* Dropdown Styles */
+.dropdown {
     position: relative;
 }
 
-.submenu {
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -117,32 +168,29 @@ nav {
     background-color: var(--white);
     min-width: 200px;
     box-shadow: var(--shadow);
-    z-index: 1000;
     border-radius: 0 0 4px 4px;
+    z-index: 1000;
 }
 
-.has-submenu:hover .submenu {
+.dropdown.active .dropdown-menu {
     display: block;
 }
 
-.submenu li {
-    list-style: none;
+.dropdown-menu li {
+    display: block;
 }
 
-.submenu li a {
-    display: block;
-    padding: 12px 20px;
+.dropdown-menu a {
     color: var(--text-color);
-    text-decoration: none;
-    transition: var(--transition);
+    padding: 12px 20px;
     border-bottom: 1px solid var(--light-gray);
 }
 
-.submenu li:last-child a {
+.dropdown-menu li:last-child a {
     border-bottom: none;
 }
 
-.submenu li a:hover {
+.dropdown-menu a:hover {
     background-color: var(--light-gray);
     color: var(--primary-color);
 }
@@ -333,8 +381,46 @@ section h2::after {
     background-color: var(--accent-color);
 }
 
-/* Responsive Design */
+/* Responsive Styles */
 @media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--primary-color);
+        box-shadow: var(--shadow);
+    }
+
+    .navbar-menu.active {
+        display: block;
+    }
+
+    .navbar-menu ul {
+        flex-direction: column;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: var(--secondary-color);
+    }
+
+    .dropdown-menu a {
+        color: var(--white);
+        padding-left: 40px;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: var(--primary-color);
+    }
+
     .header-top .container {
         flex-direction: column;
         text-align: center;
@@ -343,26 +429,6 @@ section h2::after {
     .contact-info {
         justify-content: center;
         margin-top: 15px;
-    }
-    
-    .main-menu {
-        flex-direction: column;
-    }
-    
-    .submenu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        background-color: var(--secondary-color);
-    }
-    
-    .submenu li a {
-        color: var(--white);
-        padding-left: 40px;
-    }
-    
-    .submenu li a:hover {
-        background-color: var(--primary-color);
     }
     
     .hero h2 {
