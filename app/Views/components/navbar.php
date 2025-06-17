@@ -7,9 +7,9 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="profile-menu" role="menu">
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Sejarah</a></li>
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Visi - Misi</a></li>
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Struktur Organisasi</a></li>
+              <li role="none"><a href="/profil/sejarah" role="menuitem" class="dropdown-link">Sejarah</a></li>
+              <li role="none"><a href="/profil/visi-misi" role="menuitem" class="dropdown-link">Visi - Misi</a></li>
+              <li role="none"><a href="/profil/struktur" role="menuitem" class="dropdown-link">Struktur Organisasi</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
@@ -18,8 +18,8 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="pelayanan-menu" role="menu">
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">KTP</a></li>
+              <li role="none"><a href="/pelayanan/kk" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
+              <li role="none"><a href="/pelayanan/ktp" role="menuitem" class="dropdown-link">KTP</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
@@ -28,8 +28,8 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="fasilitas-menu" role="menu">
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Pendidikan</a></li>
-              <li role="none"><a href="#" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="/fasilitas/pendidikan" role="menuitem" class="dropdown-link">Pendidikan</a></li>
+              <li role="none"><a href="/fasilitas/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
             </ul>
           </li>
           <li><a href="#" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
