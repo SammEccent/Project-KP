@@ -1,6 +1,6 @@
 <?php
 $page_title = "Edit Sejarah Kelurahan";
-include __DIR__ . '/../../layouts/header.php';
+include __DIR__ . '/../../components/header.php';
 
 $sejarah = $data['sejarah'];
 ?>
@@ -90,6 +90,4 @@ $sejarah = $data['sejarah'];
 document.getElementById('tahun').addEventListener('input', function(e) {
     this.value = this.value.replace(/[^0-9]/g, '');
 });
-</script>
-
-<?php include __DIR__ . '/../../layouts/footer.php'; ?> 
+</script> 

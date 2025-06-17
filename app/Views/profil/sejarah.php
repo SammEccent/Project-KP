@@ -1,6 +1,6 @@
 <?php
 $page_title = "Sejarah Kelurahan";
-include __DIR__ . '/../layouts/header.php';
+include __DIR__ . '/../components/navbar.php';
 ?>
 
 <div class="container py-5">
@@ -104,4 +104,4 @@ include __DIR__ . '/../layouts/header.php';
 }
 </style>
 
-<?php include __DIR__ . '/../layouts/footer.php'; ?> 
+<?php include __DIR__ . '/../components/footer.php'; ?> 

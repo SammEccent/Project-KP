@@ -1,8 +1,3 @@
-<?php
-$page_title = "Sejarah Kelurahan";
-include __DIR__ . '/../../layouts/header.php';
-?>
-
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-10 mx-auto">
@@ -32,28 +27,30 @@ include __DIR__ . '/../../layouts/header.php';
             <div class="card">
                 <div class="card-body">
                     <div class="timeline">
-                        <?php foreach ($data['sejarah'] as $sejarah): ?>
-                            <div class="timeline-item">
-                                <div class="timeline-date"><?= htmlspecialchars($sejarah['tahun']) ?></div>
-                                <div class="timeline-content">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div>
-                                            <h3><?= htmlspecialchars($sejarah['judul']) ?></h3>
-                                            <p><?= nl2br(htmlspecialchars($sejarah['deskripsi'])) ?></p>
-                                        </div>
-                                        <div class="btn-group">
+                        <?php if (!empty($data['sejarah'])): ?>
+                            <?php foreach ($data['sejarah'] as $sejarah): ?>
+                                <div class="timeline-item">
+                                    <div class="timeline-date"><?= htmlspecialchars($sejarah['tahun']) ?></div>
+                                    <div class="timeline-content">
+                                        <h3><?= htmlspecialchars($sejarah['judul']) ?></h3>
+                                        <p><?= htmlspecialchars($sejarah['deskripsi']) ?></p>
+                                        <div class="timeline-actions">
                                             <a href="/profil/sejarah/edit/<?= $sejarah['id'] ?>" class="btn btn-sm btn-outline-primary">
-                                                <span class="material-icons">edit</span>
+                                                <span class="material-icons">edit</span> Edit
                                             </a>
-                                            <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                    onclick="confirmDelete(<?= $sejarah['id'] ?>)">
-                                                <span class="material-icons">delete</span>
+                                            <button type="button" class="btn btn-sm btn-outline-danger" onclick="confirmDelete(<?= $sejarah['id'] ?>)">
+                                                <span class="material-icons">delete</span> Hapus
                                             </button>
                                         </div>
                                     </div>
                                 </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <div class="text-center py-4">
+                                <span class="material-icons text-muted" style="font-size: 48px;">history</span>
+                                <p class="mt-2 text-muted">Belum ada data sejarah yang ditambahkan</p>
                             </div>
-                        <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -62,11 +59,11 @@ include __DIR__ . '/../../layouts/header.php';
 </div>
 
 <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -74,7 +71,7 @@ include __DIR__ . '/../../layouts/header.php';
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <form id="deleteForm" method="POST" action="">
+                <form id="deleteForm" method="POST" style="display: inline;">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
@@ -128,18 +125,36 @@ include __DIR__ . '/../../layouts/header.php';
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-2px);
 }
 
 .timeline-content h3 {
     color: #4338ca;
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-.btn-group {
+.timeline-content p {
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+
+.timeline-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.timeline-actions .btn {
+    display: inline-flex;
+    align-items: center;
     gap: 5px;
 }
 
-.btn-group .material-icons {
+.timeline-actions .material-icons {
     font-size: 18px;
 }
 </style>
@@ -150,6 +165,4 @@ function confirmDelete(id) {
     document.getElementById('deleteForm').action = `/profil/sejarah/delete/${id}`;
     modal.show();
 }
-</script>
-
-<?php include __DIR__ . '/../../layouts/footer.php'; ?> 
+</script> 

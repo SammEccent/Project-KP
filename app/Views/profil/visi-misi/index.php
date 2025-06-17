@@ -1,8 +1,3 @@
-<?php
-$page_title = "Visi & Misi Kelurahan";
-include __DIR__ . '/../layouts/header.php';
-?>
-
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-8 mx-auto">
@@ -152,6 +147,4 @@ include __DIR__ . '/../layouts/header.php';
     margin: 0;
     color: #4b5563;
 }
-</style>
-
-<?php include __DIR__ . '/../layouts/footer.php'; ?> 
+</style> 

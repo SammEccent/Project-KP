@@ -9,9 +9,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
     $r->addRoute('GET', '/', 'App\Controllers\HomeController@index');
     $r->addRoute('GET', '/beranda', 'App\Controllers\HomeController@index');
 
-    // Profil
-    $r->addRoute('GET', '/profil', 'App\Controllers\ProfilController@index');
-    
     // Sejarah
     $r->addRoute('GET', '/profil/sejarah', 'App\Controllers\SejarahController@index');
     $r->addRoute('GET', '/profil/sejarah/create', 'App\Controllers\SejarahController@create');
@@ -21,10 +18,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
     $r->addRoute('POST', '/profil/sejarah/delete/{id:\d+}', 'App\Controllers\SejarahController@delete');
     
     // Visi Misi
-    $r->addRoute('GET', '/profil/visi-misi', 'App\Controllers\ProfilController@visiMisi');
+    $r->addRoute('GET', '/profil/visi-misi', 'App\Controllers\VisiMisiController@index');
     
     // Struktur Organisasi
-    $r->addRoute('GET', '/profil/struktur', 'App\Controllers\ProfilController@struktur');
+    $r->addRoute('GET', '/profil/struktur', 'App\Controllers\StrukturOrganisasiController@index');
 
     // Fasilitas
     $r->addRoute('GET', '/fasilitas/kesehatan', 'App\Controllers\FasilitasController@kesehatan');

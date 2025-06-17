@@ -1,8 +1,3 @@
-<?php
-$page_title = "Tambah Sejarah Kelurahan";
-include __DIR__ . '/../../layouts/header.php';
-?>
-
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-8 mx-auto">
@@ -86,6 +81,4 @@ include __DIR__ . '/../../layouts/header.php';
 document.getElementById('tahun').addEventListener('input', function(e) {
     this.value = this.value.replace(/[^0-9]/g, '');
 });
-</script>
-
-<?php include __DIR__ . '/../../layouts/footer.php'; ?> 
+</script> 

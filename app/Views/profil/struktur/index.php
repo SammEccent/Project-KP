@@ -1,8 +1,3 @@
-<?php
-$page_title = "Struktur Organisasi Kelurahan";
-include __DIR__ . '/../layouts/header.php';
-?>
-
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-10 mx-auto">
@@ -185,6 +180,4 @@ include __DIR__ . '/../layouts/header.php';
 .org-item.staff .org-info p {
     color: #94a3b8;
 }
-</style>
-
-<?php include __DIR__ . '/../layouts/footer.php'; ?> 
+</style> 
