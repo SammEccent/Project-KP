@@ -261,7 +261,7 @@ button {
 /* Hero Section */
 .hero-section {
     text-align: center;
-    background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+    background: linear-gradient(135deg, #C3E8DC 0%, #4BBDD6 100%);
     color: white;
     padding: 4rem 1rem 5rem;
     display: flex;
@@ -331,8 +331,8 @@ button {
     font-size: clamp(2rem, 2.5vw, 3rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #4338ca;
-    text-shadow: 0 1px 4px rgb(67 56 202 / 0.25);
+    color: #4BBDD6;
+    text-shadow: 0 1px 4px #4338ca40;
 }
 
 .sambutan-text p {
@@ -340,6 +340,93 @@ button {
     letter-spacing: 0.02em;
     margin: 0;
 }
+
+/* Layanan Cepat Section */
+.layanan-cepat-section {
+    max-width: 1280px;
+    margin: 3rem auto 5rem;
+    padding: 0 1rem;
+    background: transparent;
+    /* Background section tetap transparan */
+    border-radius: 0;
+    /* No rounded border */
+    box-shadow: none;
+    /* No shadow */
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    user-select: none;
+    color: #4BBDD6;
+    text-shadow: 0 1px 4px #4338ca40
+        /* Warna judul disesuaikan dengan warna card */
+}
+
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+.layanan-card {
+    background-color: #4BBDD6;
+    /* Warna latar belakang card */
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 6px 18px #2691A9;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #fefefe;
+    /* Warna teks di dalam card */
+}
+
+.layanan-card:hover,
+.layanan-card:focus-visible {
+    box-shadow: 0 12px 36px #1F7487;
+    transform: scale(1.05);
+    outline: none;
+}
+
+.layanan-icon {
+    font-size: 56px;
+    background: #fefefe;
+    /* Warna ikon tetap putih untuk kontras */
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.5);
+    color: #4BBDD6;
+    /* Warna ikon disesuaikan dengan warna card */
+    user-select: none;
+}
+
+.layanan-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fefefe;
+    /* Warna judul di dalam card */
+}
+
+.layanan-description {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fefefe;
+    /* Warna deskripsi di dalam card */
+}
+
 
 /* Footer */
 .footer {
