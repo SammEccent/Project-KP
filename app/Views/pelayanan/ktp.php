@@ -64,7 +64,7 @@
 
                     <!-- Tombol Aksi -->
                     <div class="text-center">
-                        <a href="/pelayanan/ktp/form.php" class="btn btn-primary btn-lg">
+                        <a href="<?=BASE_URL?>/pelayanan/form/ktp" class="btn btn-primary btn-lg">
                             <i class="material-icons">edit_document</i>
                             Ajukan Pembuatan KTP
                         </a>

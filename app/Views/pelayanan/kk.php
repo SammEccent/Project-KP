@@ -66,7 +66,7 @@
 
                     <!-- Tombol Aksi -->
                     <div class="text-center">
-                        <a href="/pelayanan/kk/form.php" class="btn btn-primary btn-lg">
+                        <a href="<?=BASE_URL?>/pelayanan/form/kk" class="btn btn-primary btn-lg">
                             <i class="material-icons">edit_document</i>
                             Ajukan Pembuatan KK
                         </a>

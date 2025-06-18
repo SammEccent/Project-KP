@@ -18,13 +18,13 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="pelayanan-menu" role="menu">
-              <li role="none"><a href="/pelayanan/kk" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
-              <li role="none"><a href="/pelayanan/ktp" role="menuitem" class="dropdown-link">KTP</a></li>
-              <li role="none"><a href="/pelayanan/kia" role="menuitem" class="dropdown-link">KIA</a></li>
-              <li role="none"><a href="/pelayanan/akta-lahir" role="menuitem" class="dropdown-link">Akta Lahir</a></li>
-              <li role="none"><a href="/pelayanan/akta-kematian" role="menuitem" class="dropdown-link">Akta Kematian</a></li>
-              <li role="none"><a href="/pelayanan/akta-nikah" role="menuitem" class="dropdown-link">Akta Nikah</a></li>
-              <li role="none"><a href="/pelayanan/akta-cerai" role="menuitem" class="dropdown-link">Akta Cerai</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/kk" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/ktp" role="menuitem" class="dropdown-link">KTP</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/kia" role="menuitem" class="dropdown-link">KIA</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/aktaLahir" role="menuitem" class="dropdown-link">Akta Lahir</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/aktaKematian" role="menuitem" class="dropdown-link">Akta Kematian</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/aktaNikah" role="menuitem" class="dropdown-link">Akta Nikah</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pelayanan/aktaCerai" role="menuitem" class="dropdown-link">Akta Cerai</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
