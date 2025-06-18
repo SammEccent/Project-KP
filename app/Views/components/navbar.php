@@ -18,8 +18,13 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="pelayanan-menu" role="menu">
-              <li role="none"><a href="/pelayanan/kk" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
-              <li role="none"><a href="/pelayanan/ktp" role="menuitem" class="dropdown-link">KTP</a></li>
+              <li role="none"><a href="/pelayanan/kk.php" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
+              <li role="none"><a href="/pelayanan/ktp.php" role="menuitem" class="dropdown-link">KTP</a></li>
+              <li role="none"><a href="/pelayanan/kia.php" role="menuitem" class="dropdown-link">Kartu Identitas Anak</a></li>
+              <li role="none"><a href="/pelayanan/akta-nikah.php" role="menuitem" class="dropdown-link">Akta Pernikahan</a></li>
+              <li role="none"><a href="/pelayanan/akta-lahir.php" role="menuitem" class="dropdown-link">Akta Kelahiran</a></li>
+              <li role="none"><a href="/pelayanan/akta-kematian.php" role="menuitem" class="dropdown-link">Akta Kematian</a></li>
+              <li role="none"><a href="/pelayanan/akta-cerai.php" role="menuitem" class="dropdown-link">Akta Perceraian</a></li>
             </ul>
           </li>
           <li class="nav-dropdown">
@@ -28,11 +33,13 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="fasilitas-menu" role="menu">
-              <li role="none"><a href="/fasilitas/pendidikan" role="menuitem" class="dropdown-link">Pendidikan</a></li>
-              <li role="none"><a href="/fasilitas/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="/fasilitas/pendidikan.php" role="menuitem" class="dropdown-link">Pendidikan</a></li>
+              <li role="none"><a href="/fasilitas/kesehatan.php" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="/fasilitas/ibadah.php" role="menuitem" class="dropdown-link">Ibadah</a></li>
+              <li role="none"><a href="/fasilitas/balai.php" role="menuitem" class="dropdown-link">Balai Warga</a></li>
             </ul>
           </li>
-          <li><a href="#" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
+          <li><a href="/berita/berita.php" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
           <li class="nav-user-dropdown nav-dropdown">
             <button class="nav-button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
               <span class="material-icons" aria-hidden="true">account_circle</span>
