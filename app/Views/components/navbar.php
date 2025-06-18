@@ -1,61 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <a class="navbar-brand" href="/">Kelurahan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/"><span class="material-icons nav-icon">home</span> Beranda</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="material-icons nav-icon">account_box</span> Profile
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-            <li><a class="dropdown-item" href="/profil/sejarah">Sejarah</a></li>
-            <li><a class="dropdown-item" href="/profil/visi-misi">Visi - Misi</a></li>
-            <li><a class="dropdown-item" href="/profil/struktur">Struktur Organisasi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pelayananDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="material-icons nav-icon">support_agent</span> Pelayanan
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="pelayananDropdown">
-            <li><a class="dropdown-item" href="/pelayanan/kk">Kartu Keluarga</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/ktp">KTP</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/kia">Kartu Identitas Anak</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/akta-nikah">Akta Pernikahan</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/akta-lahir">Akta Kelahiran</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/akta-kematian">Akta Kematian</a></li>
-            <li><a class="dropdown-item" href="/pelayanan/akta-cerai">Akta Perceraian</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="fasilitasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="material-icons nav-icon">business</span> Fasilitas
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="fasilitasDropdown">
-            <li><a class="dropdown-item" href="/fasilitas/pendidikan">Pendidikan</a></li>
-            <li><a class="dropdown-item" href="/fasilitas/kesehatan">Kesehatan</a></li>
-            <li><a class="dropdown-item" href="/fasilitas/ibadah">Ibadah</a></li>
-            <li><a class="dropdown-item" href="/fasilitas/balai">Balai Warga</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/berita"><span class="material-icons nav-icon">article</span> Berita</a>
-        </li>
-      </ul>
-      <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="material-icons">account_circle</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-          <li><a class="dropdown-item" href="#">Login</a></li>
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link" aria-current="page"><span class="material-icons nav-icon" aria-hidden="true">home</span> Beranda</a></li>
+          <li class="nav-dropdown">
+            <button aria-haspopup="true" aria-expanded="false" aria-controls="profile-menu" class="nav-button">
+              <span class="material-icons nav-icon" aria-hidden="true">account_box</span> Profile
+              <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="dropdown-menu" id="profile-menu" role="menu">
+              <li role="none"><a href="/profil/sejarah" role="menuitem" class="dropdown-link">Sejarah</a></li>
+              <li role="none"><a href="/profil/visi-misi" role="menuitem" class="dropdown-link">Visi - Misi</a></li>
+              <li role="none"><a href="/profil/struktur" role="menuitem" class="dropdown-link">Struktur Organisasi</a></li>
+              <li role="none"><a href="/profil/tugas" role="menuitem" class="dropdown-link">Tugas & Fungsi</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <button aria-haspopup="true" aria-expanded="false" aria-controls="pelayanan-menu" class="nav-button">
+              <span class="material-icons nav-icon" aria-hidden="true">support_agent</span> Pelayanan
+              <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="dropdown-menu" id="pelayanan-menu" role="menu">
+              <li role="none"><a href="/pelayanan/kk" role="menuitem" class="dropdown-link">Kartu Keluarga</a></li>
+              <li role="none"><a href="/pelayanan/ktp" role="menuitem" class="dropdown-link">KTP</a></li>
+              <li role="none"><a href="/pelayanan/kia" role="menuitem" class="dropdown-link">KIA</a></li>
+              <li role="none"><a href="/pelayanan/akta-lahir" role="menuitem" class="dropdown-link">Akta Lahir</a></li>
+              <li role="none"><a href="/pelayanan/akta-kematian" role="menuitem" class="dropdown-link">Akta Kematian</a></li>
+              <li role="none"><a href="/pelayanan/akta-nikah" role="menuitem" class="dropdown-link">Akta Nikah</a></li>
+              <li role="none"><a href="/pelayanan/akta-cerai" role="menuitem" class="dropdown-link">Akta Cerai</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <button aria-haspopup="true" aria-expanded="false" aria-controls="fasilitas-menu" class="nav-button">
+              <span class="material-icons nav-icon" aria-hidden="true">business</span> Fasilitas
+              <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="dropdown-menu" id="fasilitas-menu" role="menu">
+              <li role="none"><a href="/fasilitas/pendidikan" role="menuitem" class="dropdown-link">Pendidikan</a></li>
+              <li role="none"><a href="/fasilitas/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="/fasilitas/ibadah" role="menuitem" class="dropdown-link">Ibadah</a></li>
+              <li role="none"><a href="/fasilitas/balai" role="menuitem" class="dropdown-link">Balai Warga</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
         </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+        <div class="nav-user-dropdown nav-dropdown">
+          <button class="nav-button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+            <span class="material-icons" aria-hidden="true">account_circle</span>
+          </button>
+          <div class="dropdown-menu" id="user-menu" role="menu" style="right:0; left:auto; min-width:120px;">
+            <a href="#" class="dropdown-link" role="menuitem">Login</a>
+          </div>
+        </div>
+      </nav>
