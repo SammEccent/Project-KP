@@ -1,3 +1,4 @@
+
 <?php
 $page_title = "Berita";
 require_once __DIR__ . '/../components/navbar.php';
