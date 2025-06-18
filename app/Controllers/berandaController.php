@@ -3,7 +3,9 @@
 class berandaController extends Controller {
     public function index() {
         // Load the beranda view
+        $this->view('components/header');
         $this->view('beranda/index');
+        $this->view('components/footer');
     }
 
     public function sambutan() {
