@@ -8,16 +8,16 @@ class visimisiController extends Controller {
             'cssFiles' => [
                 'css/style.css',     // Selalu dimuat (untuk reset, font dasar, dll)
                 'css/components.css', // Untuk gaya header, footer, navigasi, dll.
-                'css/visimisi.css'
+                'css/visiMisi.css'
             ],
             //'jsFiles' => [
-                //'js/visimisi.js', // Untuk gaya konten utama halaman ini
+                //'js/visiMisi.js', // Untuk gaya konten utama halaman ini
             //],
         ];
 
         // Load the visimisi view
         $this->view('components/header', $data);
-        $this->view('profil/visimisi');
+        $this->view('profil/visiMisi');
         $this->view('components/footer', $data);
     }
 }

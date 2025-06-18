@@ -1,150 +1,87 @@
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <h1 class="text-center mb-5">Visi & Misi Kelurahan</h1>
-            
-            <!-- Visi -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title h4 mb-4">Visi</h2>
-                    <div class="vision-content">
-                        <div class="vision-icon">
-                            <span class="material-icons">visibility</span>
+<div class="visimisi-container">
+<h1 class="aside-title">VISI</h1>
+    <aside class="fluid">
+        <div class="border">
+            <div class="trail"></div>
+        </div>
+        <div class="content">
+            <p>
+                Some of the most interesting CSS tricks use properties that you
+                might have never even heard of. My goal is to make you confident in your
+                abilities to make your ideas come to life with those tricks.
+            </p>
+        </div>
+    </aside>
+    <div class="container">
+        <h2>MISI</h2>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 step1">
+                <div class="row box shape-1 animate__animated animate__bounceInLeft" style="animation-delay: 1s;">
+                    <div class="col-xs-7 col-sm-4 col-md-4 shape">
+                        <div class="number">
+                            <h1>01</h1>
                         </div>
-                        <div class="vision-text">
-                            <p class="lead">"Menjadi kelurahan yang unggul dalam pelayanan publik, pemerintahan yang bersih, dan masyarakat yang sejahtera."</p>
-                        </div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in rhoncus arcu, et volutpat
+                            mauris.</p>
+                    </div>
+                    <div class="hidden-xs col-sm-4 col-md-4 text-center">
+                    <i class="material-icons md-56">&#xE873;</i>
                     </div>
                 </div>
             </div>
-
-            <!-- Misi -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title h4 mb-4">Misi</h2>
-                    <div class="mission-list">
-                        <div class="mission-item">
-                            <div class="mission-icon">
-                                <span class="material-icons">public</span>
-                            </div>
-                            <div class="mission-text">
-                                <h3>Pelayanan Publik</h3>
-                                <p>Meningkatkan kualitas pelayanan publik yang cepat, tepat, dan transparan</p>
-                            </div>
+            <div class="col-md-8 col-md-offset-2 step2">
+                <div class="row box shape-2 animate__animated animate__bounceInRight" style="animation-delay: 2s;">
+                    <div class="col-xs-7 col-sm-4 col-md-4 shape">
+                        <div class="number">
+                            <h1>02</h1>
                         </div>
-
-                        <div class="mission-item">
-                            <div class="mission-icon">
-                                <span class="material-icons">gavel</span>
-                            </div>
-                            <div class="mission-text">
-                                <h3>Pemerintahan Bersih</h3>
-                                <p>Mengembangkan pemerintahan yang bersih, transparan, dan akuntabel</p>
-                            </div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in rhoncus arcu, et volutpat
+                            mauris.</p>
+                    </div>
+                    <div class="hidden-xs col-sm-4 col-md-4 text-center">
+                        <i class="material-icons md-56">&#xE6DF;</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 step3">
+                <div class="row box shape-3 animate__animated animate__bounceInLeft" style="animation-delay: 3s;">
+                    <div class="col-xs-7 col-sm-4 col-md-4 shape">
+                        <div class="number">
+                            <h1>03</h1>
                         </div>
-
-                        <div class="mission-item">
-                            <div class="mission-icon">
-                                <span class="material-icons">groups</span>
-                            </div>
-                            <div class="mission-text">
-                                <h3>Partisipasi Masyarakat</h3>
-                                <p>Mendorong partisipasi aktif masyarakat dalam pembangunan</p>
-                            </div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in rhoncus arcu, et volutpat
+                            mauris.</p>
+                    </div>
+                    <div class="hidden-xs col-sm-4 col-md-4 text-center">
+                        <i class="material-icons md-56">&#xE6C5;</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 step4">
+                <div class="row box shape-4 animate__animated animate__bounceInRight" style="animation-delay: 4s;">
+                    <div class="col-xs-7 col-sm-4 col-md-4 shape">
+                        <div class="number">
+                            <h1>04</h1>
                         </div>
-
-                        <div class="mission-item">
-                            <div class="mission-icon">
-                                <span class="material-icons">trending_up</span>
-                            </div>
-                            <div class="mission-text">
-                                <h3>Kesejahteraan</h3>
-                                <p>Meningkatkan kesejahteraan masyarakat melalui program pembangunan berkelanjutan</p>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in rhoncus arcu, et volutpat
+                            mauris.</p>
+                    </div>
+                    <div class="hidden-xs col-sm-4 col-md-4 text-center">
+                        <i class="material-icons md-56">&#xE6E1;</i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-.vision-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background: #f8fafc;
-    border-radius: 8px;
-}
-
-.vision-icon {
-    background: #6366f1;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.vision-icon .material-icons {
-    font-size: 32px;
-}
-
-.vision-text {
-    flex: 1;
-}
-
-.vision-text .lead {
-    color: #4338ca;
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-.mission-list {
-    display: grid;
-    gap: 20px;
-}
-
-.mission-item {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    background: #f8fafc;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.mission-item:hover {
-    transform: translateY(-2px);
-}
-
-.mission-icon {
-    background: #6366f1;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mission-icon .material-icons {
-    font-size: 24px;
-}
-
-.mission-text h3 {
-    color: #4338ca;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-}
-
-.mission-text p {
-    margin: 0;
-    color: #4b5563;
-}
-</style> 

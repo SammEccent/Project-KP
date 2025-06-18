@@ -4,7 +4,7 @@ class strukturOrganisasiController extends Controller {
     public function index() {
         // Send data to the view if needed
         $data = [
-            'title' => 'Struktur Organisasi Kelurahan',
+            'pageTitle' => 'Struktur Organisasi Kelurahan',
             'cssFiles' => [
                 'css/style.css',     // Selalu dimuat (untuk reset, font dasar, dll)
                 'css/components.css', // Untuk gaya header, footer, navigasi, dll.
