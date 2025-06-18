@@ -1,0 +1,168 @@
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    background: linear-gradient(135deg, #C3E8DC 0%, #4BBDD6 100%);
+    color: white;
+    padding: 4rem 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    user-select: none;
+}
+
+.hero-section h1 {
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+}
+
+.hero-section p {
+    font-weight: 500;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    max-width: 640px;
+    margin: 0 auto;
+    text-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
+}
+
+.hero-image {
+    max-width: 100%;
+    border-radius: 20px;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+}
+
+/* Sambutan Section - two columns no background card */
+.sambutan-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 3rem auto 4rem;
+    padding: 0 1rem;
+    align-items: center;
+    user-select: text;
+}
+
+.sambutan-image-container {
+    flex: 1 1 320px;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+}
+
+.sambutan-image-container img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgb(75 61 241 / 0.28);
+}
+
+.sambutan-text {
+    flex: 2 1 360px;
+    color: #1e293b;
+    font-size: clamp(1rem, 1.4vw, 1.3rem);
+    line-height: 1.75;
+}
+
+.sambutan-text h2 {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #4BBDD6;
+    text-shadow: 0 1px 4px #4338ca40;
+}
+
+.sambutan-text p {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+/* Layanan Cepat Section */
+.layanan-cepat-section {
+    max-width: 1280px;
+    margin: 3rem auto 5rem;
+    padding: 0 1rem;
+    background: transparent;
+    /* Background section tetap transparan */
+    border-radius: 0;
+    /* No rounded border */
+    box-shadow: none;
+    /* No shadow */
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    user-select: none;
+    color: #4BBDD6;
+    text-shadow: 0 1px 4px #4338ca40
+        /* Warna judul disesuaikan dengan warna card */
+}
+
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+.layanan-card {
+    background-color: #4BBDD6;
+    /* Warna latar belakang card */
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 6px 18px #2691A9;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #fefefe;
+    /* Warna teks di dalam card */
+}
+
+.layanan-card:hover,
+.layanan-card:focus-visible {
+    box-shadow: 0 12px 36px #1F7487;
+    transform: scale(1.05);
+    outline: none;
+}
+
+.layanan-icon {
+    font-size: 56px;
+    background: #fefefe;
+    /* Warna ikon tetap putih untuk kontras */
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.5);
+    color: #4BBDD6;
+    /* Warna ikon disesuaikan dengan warna card */
+    user-select: none;
+}
+
+.layanan-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fefefe;
+    /* Warna judul di dalam card */
+}
+
+.layanan-description {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fefefe;
+    /* Warna deskripsi di dalam card */
+}

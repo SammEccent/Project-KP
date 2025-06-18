@@ -1,25 +1,23 @@
 <?php
 
-namespace App\Controllers;
-
-use App\Models\StrukturOrganisasi;
-
-class StrukturOrganisasiController {
-    private $model;
-
-    public function __construct() {
-        $this->model = new StrukturOrganisasi();
-    }
-
+class strukturOrganisasiController extends Controller {
     public function index() {
-        $struktur = $this->model->getAll();
-        
-        return [
-            'view' => 'profil/struktur/index',
-            'data' => [
-                'page_title' => 'Struktur Organisasi Kelurahan',
-                'struktur' => $struktur
-            ]
+        // Send data to the view if needed
+        $data = [
+            'title' => 'Struktur Organisasi Kelurahan',
+            'cssFiles' => [
+                'css/style.css',     // Selalu dimuat (untuk reset, font dasar, dll)
+                'css/components.css', // Untuk gaya header, footer, navigasi, dll.
+                'css/strukturOrganisasi.css'
+            ],
+            //'jsFiles' => [
+                //'js/strukturOrganisasi.js', // Untuk gaya konten utama halaman ini
+            //],
         ];
+
+        // Load the strukturOrganisasi view
+        $this->view('components/header', $data);
+        $this->view('profil/strukturOrganisasi');
+        $this->view('components/footer', $data);
     }
-} 
+}

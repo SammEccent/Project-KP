@@ -2,8 +2,18 @@
 
 class berandaController extends Controller {
     public function index() {
+        // Send data to the view
+        $data = [
+            'pageTitle' => 'Beranda Kelurahan',
+            'cssFiles' => [
+                'css/style.css',     // Selalu dimuat (untuk reset, font dasar, dll)
+                'css/components.css', // Untuk gaya header, footer, navigasi, dll.
+                'css/beranda.css',       // Untuk gaya konten utama halaman ini
+            ]
+        ];
+
         // Load the beranda view
-        $this->view('components/header');
+        $this->view('components/header', $data);
         $this->view('beranda/index');
         $this->view('components/footer');
     }

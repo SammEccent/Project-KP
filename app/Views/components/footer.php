@@ -41,6 +41,10 @@
     </div>
   </footer>
 
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider JS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -84,5 +88,12 @@
       }
     });
   </script>
+  <?php if (isset($jsFiles) && is_array($jsFiles)): ?>
+        <?php foreach ($jsFiles as $jsFile): ?>
+            <script src="<?= BASE_URL . '/' . $jsFile; ?>"></script>
+        <?php endforeach; ?>
+  <?php endif; ?>
+
+
 </body>
 </html> 
