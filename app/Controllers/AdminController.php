@@ -12,4 +12,7 @@ class AdminController extends Controller {
     public function berita() {
         $this->view('admin/berita');
     }
+    public function index() {
+        $this->view('admin/dashboard');
+    }
 } 

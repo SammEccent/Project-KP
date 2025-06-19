@@ -17,24 +17,10 @@
     </style>
 </head>
 <body>
-<div class="sidebar" id="sidebar">
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <a href="/admin/dashboard">Dashboard</a>
-    <a href="/admin/strukturOrganisasi">Struktur Organisasi</a>
-    <a href="/admin/fasilitas">Fasilitas</a>
-    <a href="/admin/berita">Berita</a>
-</div>
+<?php include 'sidebar.php'; ?>
 <div class="main" id="main">
     <h1>Selamat Datang, Admin!</h1>
     <p>Pilih menu di samping untuk mengelola konten website.</p>
 </div>
-<script>
-function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var main = document.getElementById('main');
-    sidebar.classList.toggle('closed');
-    main.classList.toggle('closed');
-}
-</script>
 </body>
 </html> 

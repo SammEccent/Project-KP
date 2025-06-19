@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="/public/css/admin.css">
 </head>
 <body>
-<?php include 'dashboard.php'; ?>
-<div class="main">
+<?php include 'sidebar.php'; ?>
+<div class="main" id="main">
     <h2>Fasilitas</h2>
     <button>Tambah Fasilitas</button>
     <table border="1" cellpadding="8" style="margin-top:16px;width:100%;">
