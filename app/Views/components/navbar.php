@@ -33,13 +33,13 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="fasilitas-menu" role="menu">
-              <li role="none"><a href="/fasilitas/pendidikan" role="menuitem" class="dropdown-link">Pendidikan</a></li>
-              <li role="none"><a href="/fasilitas/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
-              <li role="none"><a href="/fasilitas/ibadah" role="menuitem" class="dropdown-link">Ibadah</a></li>
-              <li role="none"><a href="/fasilitas/balai" role="menuitem" class="dropdown-link">Balai Warga</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/pendidikan" role="menuitem" class="dropdown-link">Pendidikan</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/ibadah" role="menuitem" class="dropdown-link">Ibadah</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/balai" role="menuitem" class="dropdown-link">Balai Warga</a></li>
             </ul>
           </li>
-          <li><a href="#" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
+          <li><a href="<?=BASE_URL?>/berita" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>
         </ul>
         <div class="nav-user-dropdown nav-dropdown">
           <button class="nav-button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
