@@ -9,7 +9,10 @@ class berandaController extends Controller {
                 'css/style.css',     // Selalu dimuat (untuk reset, font dasar, dll)
                 'css/components.css', // Untuk gaya header, footer, navigasi, dll.
                 'css/beranda.css',       // Untuk gaya konten utama halaman ini
-            ]
+            ],
+            'jsFiles' => [
+                'js/berandaSlideshow.js', // Script khusus untuk halaman beranda
+            ],
         ];
 
         // Load the beranda view

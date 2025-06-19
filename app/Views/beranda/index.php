@@ -1,4 +1,4 @@
-    <section id="hero" class="hero-section">
+<section id="hero" class="hero-section">
       <h1>Selamat Datang di Website Resmi Kelurahan</h1>
       <p>Melayani masyarakat dengan transparansi, profesionalisme, dan inovasi.</p>
       <img
@@ -8,26 +8,16 @@
         loading="lazy"
       />
     </section>
-
-    <section id="sambutan" class="sambutan-section" tabindex="0" aria-labelledby="sambutan-title">
-      <div class="sambutan-image-container">
-        <img
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/681ebe8c-e227-4e94-8bfe-cd68e66d128d.png"
-          alt="Foto Kepala Kelurahan menyambut warga dengan latar belakang kantor kelurahan modern"
-          loading="lazy"
-        />
-      </div>
-      <div class="sambutan-text">
-        <h2 id="sambutan-title">Sambutan Kepala Kelurahan</h2>
-        <p>
-          Dengan penuh semangat kami menyambut Anda di situs resmi Kelurahan kami. Kami berkomitmen
-          memberikan pelayanan yang terbaik, transparan, dan inovatif demi membangun lingkungan yang
-          harmonis dan maju bersama masyarakat.
-        </p>
-      </div>
+    <section class="img-desc-section">
+        <img src="img/drafLurah.jpg" alt="Gambar Kiri">
+        <div class="desc-kanan">
+            <h2>Sambutan Lurah</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, beatae iste. Magni excepturi quisquam fugiat at officia minima. Minima reprehenderit quis quod quae tempore suscipit deleniti repellendus vero delectus saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint magnam, cupiditate, quis aliquam culpa nulla totam consequatur, quidem odit velit repellat natus. Sequi illo eum rem id velit nihil unde?</p>
+        </div>
     </section>
 
     <section id="layanan-cepat" class="layanan-cepat-section" aria-labelledby="layanan-cepat-title" tabindex="0">
+      <div class="confetti"></div>
       <h2 id="layanan-cepat-title" class="section-title">Layanan Cepat</h2>
       <div class="layanan-grid">
         <article class="layanan-card" tabindex="0" role="button" aria-label="Layanan Pengurusan Kartu Keluarga">

@@ -1,7 +1,14 @@
 /* Hero Section */
 .hero-section {
     text-align: center;
-    background: linear-gradient(135deg, #C3E8DC 0%, #4BBDD6 100%);
+    position: relative;
+    overflow: hidden;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    animation: fadeInHero 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     color: white;
     padding: 4rem 1rem 5rem;
     display: flex;
@@ -11,11 +18,67 @@
     user-select: none;
 }
 
+@keyframes fadeInHero {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #fff6 60%, transparent 100%);
+    z-index: 0;
+    filter: blur(8px);
+    opacity: 0.7;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #fff4 60%, transparent 100%);
+    z-index: 0;
+    filter: blur(10px);
+    opacity: 0.5;
+}
+
 .hero-section h1 {
     font-weight: 900;
     font-size: clamp(2rem, 4vw, 3.5rem);
     line-height: 1.1;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    animation: floatTitle 2.5s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #fff 60%, #C3E8DC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
     text-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+}
+
+@keyframes floatTitle {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
 }
 
 .hero-section p {
@@ -23,6 +86,15 @@
     font-size: clamp(1rem, 1.5vw, 1.5rem);
     max-width: 640px;
     margin: 0 auto;
+    color: #f8f8f8;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 12px 0 rgba(75, 189, 214, 0.08);
+    margin-bottom: 1.5rem;
+    z-index: 1;
+    position: relative;
+    animation: fadeInHero 1.8s 0.2s cubic-bezier(0.4, 0, 0.2, 1) backwards;
     text-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
 }
 
@@ -31,6 +103,37 @@
     border-radius: 20px;
     margin-top: 2rem;
     box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+    transition: opacity 0.4s;
+    opacity: 1;
+}
+
+.hero-image.fade-out {
+    opacity: 0.2;
+}
+
+/* Confetti effect (subtle, elegant) - digunakan di hero-section dan layanan-cepat-section */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.13;
+    background-image: url('data:image/svg+xml;utf8,<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="4" fill="%234BBDD6"/><circle cx="100" cy="40" r="3" fill="%23C3E8DC"/><circle cx="80" cy="100" r="2.5" fill="%23fff"/><circle cx="40" cy="80" r="2" fill="%234BBDD6"/></svg>');
+    background-size: 140px 140px;
+    animation: confettiMove 18s linear infinite;
+}
+
+@keyframes confettiMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 140px 140px;
+    }
 }
 
 /* Sambutan Section - two columns no background card */
@@ -85,13 +188,36 @@
 .layanan-cepat-section {
     max-width: 1280px;
     margin: 3rem auto 5rem;
-    padding: 0 1rem;
-    background: transparent;
-    /* Background section tetap transparan */
-    border-radius: 0;
-    /* No rounded border */
-    box-shadow: none;
-    /* No shadow */
+    padding: 0 1rem 3rem 1rem;
+    background: linear-gradient(120deg, #e0f7fa 0%, #f8fafc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.layanan-cepat-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #4BBDD6 30%, transparent 80%);
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.layanan-cepat-section::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, #2691A9 30%, transparent 80%);
+    opacity: 0.10;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .section-title {
@@ -101,8 +227,10 @@
     margin-bottom: 2rem;
     user-select: none;
     color: #4BBDD6;
-    text-shadow: 0 1px 4px #4338ca40
-        /* Warna judul disesuaikan dengan warna card */
+    text-shadow: 0 1px 4px #4338ca40;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
 }
 
 .layanan-grid {
@@ -111,18 +239,19 @@
     gap: 2rem;
     justify-items: center;
     align-items: start;
+    position: relative;
+    z-index: 1;
 }
 
 .layanan-card {
-    background-color: #4BBDD6;
-    /* Warna latar belakang card */
-    border-radius: 16px;
+    background: linear-gradient(135deg, #4BBDD6 80%, #C3E8DC 100%);
+    border-radius: 20px;
     padding: 2rem 1.5rem;
     width: 100%;
     max-width: 280px;
     text-align: center;
     box-shadow: 0 6px 18px #2691A9;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -130,33 +259,71 @@
     align-items: center;
     gap: 1rem;
     color: #fefefe;
-    /* Warna teks di dalam card */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    animation: layananFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes layananFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .layanan-card:hover,
 .layanan-card:focus-visible {
-    box-shadow: 0 12px 36px #1F7487;
-    transform: scale(1.05);
+    box-shadow: 0 16px 40px #1F7487cc, 0 0 0 4px #C3E8DC99;
+    transform: scale(1.07) rotate(-1deg);
     outline: none;
+    border: 2px solid #fff;
+    background: linear-gradient(120deg, #4BBDD6 60%, #fff 120%);
+}
+
+.layanan-card::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #fff 40%, transparent 80%);
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
 }
 
 .layanan-icon {
     font-size: 56px;
     background: #fefefe;
-    /* Warna ikon tetap putih untuk kontras */
     border-radius: 50%;
     padding: 1rem;
     box-shadow: 0 6px 18px rgba(99, 102, 241, 0.5);
     color: #4BBDD6;
-    /* Warna ikon disesuaikan dengan warna card */
     user-select: none;
+    margin-bottom: 0.5rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.layanan-card:hover .layanan-icon,
+.layanan-card:focus-visible .layanan-icon {
+    background: linear-gradient(135deg, #C3E8DC 60%, #fff 100%);
+    color: #2691A9;
 }
 
 .layanan-title {
     font-size: 1.3rem;
     font-weight: 700;
     color: #fefefe;
-    /* Warna judul di dalam card */
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
 }
 
 .layanan-description {
@@ -164,5 +331,186 @@
     font-weight: 500;
     line-height: 1.5;
     color: #fefefe;
-    /* Warna deskripsi di dalam card */
+    opacity: 0.96;
+}
+
+/* Sambutan Gaya Flex Responsive sesuai tema */
+.img-desc-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 3.5rem 2rem;
+    max-width: 1100px;
+    margin: 3rem auto 2.5rem auto;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(7px);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInHero 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-desc-section::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #C3E8DC 60%, transparent 100%);
+    opacity: 0.18;
+    z-index: 0;
+    filter: blur(8px);
+}
+
+.img-desc-section::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #4BBDD6 60%, transparent 100%);
+    opacity: 0.13;
+    z-index: 0;
+    filter: blur(10px);
+}
+
+.img-desc-section img {
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 6px 32px 0 rgba(75, 189, 214, 0.18);
+    border: 4px solid #fff;
+    background: #e6f7fa;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+}
+
+.img-desc-section img:hover {
+    transform: scale(1.04) rotate(-2deg);
+    box-shadow: 0 12px 40px 0 rgba(75, 189, 214, 0.22);
+}
+
+.desc-kanan {
+    flex: 1;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+    padding: 2.2rem 2rem 2rem 2rem;
+    box-shadow: 0 2px 12px 0 rgba(75, 189, 214, 0.08);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeInHero 1.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.desc-kanan h2 {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #4BBDD6;
+    margin-bottom: 1.1rem;
+    letter-spacing: 1.2px;
+    background: linear-gradient(90deg, #4BBDD6 60%, #C3E8DC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.desc-kanan p {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.7;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: 0 1px 6px 0 rgba(75, 189, 214, 0.06);
+}
+
+/* Responsive improvement */
+@media (max-width: 900px) {
+    .img-desc-section {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2.2rem 0.7rem;
+    }
+
+    .img-desc-section img {
+        width: 160px;
+        height: 200px;
+    }
+
+    .desc-kanan {
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    }
+
+    .desc-kanan h2 {
+        font-size: 1.5rem;
+    }
+
+    .desc-kanan p {
+        font-size: 1rem;
+        padding: 0.7rem 0.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 2.5rem 0.5rem 3rem;
+        border-radius: 18px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #7bbfd1 0%, #3a8fa3 60%, #217a92 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    left: -80px;
+    top: 10vh;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #217a92 0%, transparent 80%);
+    opacity: 0.16;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(10px);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    right: -60px;
+    bottom: 5vh;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, #3a8fa3 0%, transparent 80%);
+    opacity: 0.13;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(12px);
 }
