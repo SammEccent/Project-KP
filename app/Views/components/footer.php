@@ -2,7 +2,7 @@
 
   <footer class="footer" role="contentinfo">
     <div class="footer-container footer-grid">
-      <img src="<?=BASE_URL?>/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="logo-image" />
+      <img src="<?=BASE_URL?>/public/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="logo-image" />
       <section class="footer-section footer-address" aria-label="Alamat kantor kelurahan">
         <h3>Alamat Kantor Kelurahan</h3>
         <address>
@@ -88,7 +88,7 @@
   </script>
   <?php if (isset($jsFiles) && is_array($jsFiles)): ?>
         <?php foreach ($jsFiles as $jsFile): ?>
-            <script src="<?= BASE_URL . '/' . $jsFile; ?>"></script>
+            <script src="<?= BASE_URL . '/public/' . $jsFile; ?>"></script>
         <?php endforeach; ?>
   <?php endif; ?>
 

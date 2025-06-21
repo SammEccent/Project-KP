@@ -1,76 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Website Kelurahan - Beranda</title>
-  <link rel="stylesheet" href="<?= BASE_URL;?>/css/style.css"/>
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draf Lurah - Kelurahan Lengkong Wetan</title>
+    <link rel="stylesheet" href="<?= BASE_URL;?>/public/css/style.css"/>
+    <link rel="stylesheet" href="<?= BASE_URL;?>/public/css/components.css"/>
+    <link rel="stylesheet" href="<?= BASE_URL;?>/public/css/beranda.css"/>
 </head>
 <body>
-<header class="header" role="banner">
-    <div class="header-container">
-      <a href="#" class="brand" aria-label="Website Kelurahan Beranda">
-        <img src="<?=BASE_URL?>/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="brand-logo" />
-      </a>
-      <?php
-        require_once __DIR__ . '/../components/navbar.php';
-        ?>
-      <button aria-label="Toggle menu" class="menu-toggle" aria-expanded="false" aria-controls="menu-list">
-        <span class="material-icons">menu</span>
-      </button>
-    </div>
-  </header>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <a href="#" class="brand" aria-label="Website Kelurahan Beranda">
+                <img src="<?=BASE_URL?>/public/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="brand-logo" />
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="<?=BASE_URL?>/" class="nav-link">Beranda</a></li>
+                    <li><a href="<?=BASE_URL?>/sejarah" class="nav-link">Sejarah</a></li>
+                    <li><a href="<?=BASE_URL?>/visimisi" class="nav-link">Visi - Misi</a></li>
+                    <li><a href="<?=BASE_URL?>/strukturOrganisasi" class="nav-link">Struktur Organisasi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
+    <main id="maincontent" tabindex="-1">
+        <section class="hero-section">
+            <h1>Sambutan Lurah</h1>
+            <p>Selamat datang di website resmi Kelurahan Lengkong Wetan</p>
+            <img src="<?=BASE_URL?>/public/img/drafLurah.jpg" alt="Foto Lurah" class="hero-image">
+        </section>
 
-  //kode halaman sejarah
+        <section class="content-section">
+            <div class="container">
+                <h2>Sambutan Lurah Kelurahan Lengkong Wetan</h2>
+                <p>Assalamu'alaikum Warrahmatullahi Wabarakatuh</p>
+                <p>Selamat datang di website resmi Kelurahan Lengkong Wetan. Kami mengucapkan terima kasih atas kunjungan Anda ke website kami.</p>
+                <p>Kelurahan Lengkong Wetan berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat dengan mengutamakan transparansi, profesionalisme, dan inovasi dalam setiap layanan yang kami berikan.</p>
+                <p>Melalui website ini, kami berharap dapat memudahkan masyarakat dalam mengakses informasi dan layanan yang tersedia di kelurahan kami.</p>
+                <p>Wassalamu'alaikum Warrahmatullahi Wabarakatuh</p>
+                <p><strong>Lurah Kelurahan Lengkong Wetan</strong><br>
+                <em>Nama Lurah</em></p>
+            </div>
+        </section>
+    </main>
 
-  </main>
-
-<footer class="footer" role="contentinfo">
-  <div class="footer-container footer-grid">
-    <img src="<?=BASE_URL?>/img/Lambang_Kota_Tangerang_Selatan.png"" alt="Logo Kelurahan" class="logo-image" />
-    <section class="footer-section footer-address" aria-label="Alamat kantor kelurahan">
-      <h3>Alamat Kantor Kelurahan</h3>
-      <address>
-        Jl. Merdeka No.123, Kota Contoh, Provinsi Contoh 12345<br />
-        Telepon: <a href="tel:+62123456789">+62 123-4567-89</a><br />
-        Jam Operasional: Senin - Jumat, 08:00 - 16:00 WIB
-      </address>
-    </section>
-    <section class="footer-section footer-social" aria-label="Tautan media sosial">
-      <h3>Media Sosial</h3>
-      <div class="social-container">
-          <ul class="social-icons">
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
-          </ul>
-      </div>
-    </section>
-    <section class="footer-section footer-map" aria-label="Peta lokasi kantor kelurahan">
-      <h3>Peta Lokasi</h3>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7475928485893!2d106.8256213392682!3d-6.175392299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5e911ca1d3f%3A0x3e0ce7d327d291f4!2sMonumen%20Nasional%20(Monas)!5e0!3m2!1sid!2sid!4v1695910087768!5m2!1sid!2sid"
-        width="100%"
-        height="180"
-        style="border:0; border-radius:12px;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Peta Lokasi Kantor Kelurahan"
-      ></iframe>
-    </section>
-  </div>
-  <div class="footer-bottom-centered">
-    <p>© 2024 Kelurahan. All rights reserved.</p>
-  </div>
-</footer>
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container footer-grid">
+            <img src="<?=BASE_URL?>/public/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="logo-image" />
+            <section class="footer-section footer-address" aria-label="Alamat kantor kelurahan">
+                <h3>Alamat Kantor Kelurahan</h3>
+                <address>
+                    Jl. Kp. Ciater II No.007/02, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310<br />
+                    Telepon: <a href="tel:+62123456789">+62 123-4567-89</a><br />
+                    Jam Operasional: Senin - Jumat, 08:00 - 16:00 WIB
+                </address>
+            </section>
+        </div>
+        <div class="footer-bottom-centered">
+            <p>© 2024 Kelurahan. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html> 

@@ -2,14 +2,14 @@
       <h1>Selamat Datang di Website Resmi Kelurahan</h1>
       <p>Melayani masyarakat dengan transparansi, profesionalisme, dan inovasi.</p>
       <img
-        src="<?=BASE_URL?>/img/kantor.jpg"
+        src="<?=BASE_URL?>/public/img/kantor.jpg"
         alt="Gambar gedung kelurahan"
         class="hero-image"
         loading="lazy"
       />
     </section>
     <section class="img-desc-section">
-        <img src="img/drafLurah.jpg" alt="Gambar Kiri">
+        <img src="<?=BASE_URL?>/public/img/drafLurah.jpg" alt="Gambar Kiri">
         <div class="desc-kanan">
             <h2>Sambutan Lurah</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, beatae iste. Magni excepturi quisquam fugiat at officia minima. Minima reprehenderit quis quod quae tempore suscipit deleniti repellendus vero delectus saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint magnam, cupiditate, quis aliquam culpa nulla totam consequatur, quidem odit velit repellat natus. Sequi illo eum rem id velit nihil unde?</p>

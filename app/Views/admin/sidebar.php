@@ -1,9 +1,9 @@
 <div class="sidebar" id="sidebar">
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <a href="../public/admin/dashboard">Dashboard</a>
-    <a href="../public/admin/strukturOrganisasi">Struktur Organisasi</a>
-    <a href="../public/admin/fasilitas">Fasilitas</a>
-    <a href="../public/admin/berita">Berita</a>
+    <a href="<?= BASE_URL ?>/admin/dashboard">Dashboard</a>
+    <a href="<?= BASE_URL ?>/admin/strukturOrganisasi">Struktur Organisasi</a>
+    <a href="<?= BASE_URL ?>/admin/fasilitas">Fasilitas</a>
+    <a href="<?= BASE_URL ?>/admin/berita">Berita</a>
 </div>
 <script>
 function toggleSidebar() {

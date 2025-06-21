@@ -1,18 +1,42 @@
 <?php
 class AdminController extends Controller {
     public function dashboard() {
-        $this->view('admin/dashboard');
+        $data = [
+            'pageTitle' => 'Admin Dashboard',
+            'cssFiles' => [
+                'css/admin.css'
+            ]
+        ];
+        $this->view('admin/dashboard', $data);
     }
     public function strukturOrganisasi() {
-        $this->view('admin/strukturOrganisasi');
+        $data = [
+            'pageTitle' => 'Admin - Struktur Organisasi',
+            'cssFiles' => [
+                'css/admin.css'
+            ]
+        ];
+        $this->view('admin/strukturOrganisasi', $data);
     }
     public function fasilitas() {
-        $this->view('admin/fasilitas');
+        $data = [
+            'pageTitle' => 'Admin - Fasilitas',
+            'cssFiles' => [
+                'css/admin.css'
+            ]
+        ];
+        $this->view('admin/fasilitas', $data);
     }
     public function berita() {
-        $this->view('admin/berita');
+        $data = [
+            'pageTitle' => 'Admin - Berita',
+            'cssFiles' => [
+                'css/admin.css'
+            ]
+        ];
+        $this->view('admin/berita', $data);
     }
     public function index() {
-        $this->view('admin/dashboard');
+        $this->dashboard();
     }
 } 
