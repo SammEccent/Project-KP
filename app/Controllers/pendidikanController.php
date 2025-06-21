@@ -16,8 +16,8 @@ class pendidikanController extends Controller{
         ];
 
         // Load the pendidikan view
-        $this->view('components/header',$data);
-        $this->view('fasilitas/pendidikan');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header',$data);
+        $this->view('public/fasilitas/pendidikan');
+        $this->view('public/components/footer', $data);
     }
 }

@@ -13,9 +13,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/index');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/index');
+        $this->view('public/components/footer');
     }
 
     // KTP
@@ -29,9 +29,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/ktp');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/ktp');
+        $this->view('public/components/footer');
     }
 
     // Kartu Keluarga
@@ -45,9 +45,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/kk');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/kk');
+        $this->view('public/components/footer');
     }
 
     // KIA
@@ -61,9 +61,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/kia');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/kia');
+        $this->view('public/components/footer');
     }
 
     // Akta Lahir
@@ -77,9 +77,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/akta-lahir');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/akta-lahir');
+        $this->view('public/components/footer');
     }
 
     // Akta Kematian
@@ -93,9 +93,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/akta-kematian');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/akta-kematian');
+        $this->view('public/components/footer');
     }
 
     // Akta Nikah
@@ -109,9 +109,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/akta-nikah');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/akta-nikah');
+        $this->view('public/components/footer');
     }
 
     // Akta Cerai
@@ -125,9 +125,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/akta-cerai');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/akta-cerai');
+        $this->view('public/components/footer');
     }
 
     // Form pengajuan
@@ -142,9 +142,9 @@ class pelayananController extends Controller {
             ]
         ];
 
-        $this->view('components/header', $data);
-        $this->view('pelayanan/form', $data);
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/pelayanan/form', $data);
+        $this->view('public/components/footer');
     }
 
     // Proses pengajuan

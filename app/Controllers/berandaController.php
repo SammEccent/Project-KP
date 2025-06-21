@@ -16,9 +16,9 @@ class berandaController extends Controller {
         ];
 
         // Load the beranda view
-        $this->view('components/header', $data);
-        $this->view('beranda/index');
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/beranda');
+        $this->view('public/components/footer');
     }
 
     public function sambutan() {

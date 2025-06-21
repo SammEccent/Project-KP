@@ -16,8 +16,8 @@ class strukturOrganisasiController extends Controller {
         ];
 
         // Load the strukturOrganisasi view
-        $this->view('components/header', $data);
-        $this->view('profil/strukturOrganisasi');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header', $data);
+        $this->view('public/profil/strukturOrganisasi');
+        $this->view('public/components/footer', $data);
     }
 }

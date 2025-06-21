@@ -16,8 +16,8 @@ class ibadahController extends Controller {
         ];
 
         // Load the ibadah view
-        $this->view('components/header', $data);
-        $this->view('fasilitas/ibadah');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/ibadah');
+        $this->view('public/components/footer', $data);
     }
 }

@@ -1,5 +1,9 @@
 <?php
 class AdminController extends Controller {
+    private $userModel;
+    public function __construct() {
+        $this->userModel = $this->model('UserModel');
+    }
     public function dashboard() {
         $this->requireLogin();
         $data = [
@@ -230,9 +234,18 @@ class AdminController extends Controller {
             // Username dan password bisa Anda ganti sesuai kebutuhan
             $validUser = 'admin';
             $validPass = 'admin123';
-            if ($username === $validUser && $password === $validPass) {
+
+            // jgn di hapus, ini dari db
+            //$user = $this->userModel->getUserByUsername($username);
+            //if ($user && password_verify($password, $user['pass_hash'])) {
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
+            // Set session variables
                 $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_username'] = $username;
+                $_SESSION['admin_username'] = $user['username'];
+                $_SESSION['admin_id'] = $user['id'];
+                
+                // Redirect to dashboard
                 header('Location: ' . BASE_URL . '/admin/dashboard');
                 exit;
             } else {
@@ -260,4 +273,4 @@ class AdminController extends Controller {
             exit;
         }
     }
-} 
+}

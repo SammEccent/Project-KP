@@ -16,8 +16,8 @@ class visimisiController extends Controller {
         ];
 
         // Load the visimisi view
-        $this->view('components/header', $data);
-        $this->view('profil/visiMisi');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header', $data);
+        $this->view('public/profil/visiMisi');
+        $this->view('public/components/footer', $data);
     }
 }

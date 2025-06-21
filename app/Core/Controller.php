@@ -16,4 +16,17 @@ class Controller {
             die('View does not exist: ' . $view);
         }
     }
+
+    public function model($model) {
+        // Check if the model file exists
+        if (file_exists('../app/Models/' . $model . '.php')) {
+            // If it exists, require the model file
+            require_once '../app/Models/' . $model . '.php';
+            // Create an instance of the model and return it
+            return new $model;
+        } else {
+            // If it does not exist, throw an error
+            die('Model does not exist: ' . $model);
+        }
+    }
 }

@@ -16,8 +16,8 @@ class balaiController extends Controller {
         ];
 
         // Load the balai view
-        $this->view('components/header', $data);
-        $this->view('fasilitas/balai');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/balai');
+        $this->view('public/components/footer', $data);
     }
 }

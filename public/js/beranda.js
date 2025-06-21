@@ -1,7 +1,7 @@
 const heroImages = [
-  `${window.BASE_URL || ''}/public/img/kantor.jpg`,
-  `${window.BASE_URL || ''}/public/img/Lambang_Kota_Tangerang_Selatan.png`,
-  `${window.BASE_URL || ''}/public/img/drafLurah.jpg`
+  `${window.BASE_URL || ''}/img/kantor.jpg`,
+  `${window.BASE_URL || ''}/img/Lambang_Kota_Tangerang_Selatan.png`,
+  `${window.BASE_URL || ''}/img/drafLurah.jpg`
 ];
 
 let heroIndex = 0;

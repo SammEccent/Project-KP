@@ -16,8 +16,8 @@ class kesehatanController extends Controller {
         ];
 
         // Load the kesehatan view
-        $this->view('components/header', $data);
-        $this->view('fasilitas/kesehatan');
-        $this->view('components/footer', $data);
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/kesehatan');
+        $this->view('public/components/footer', $data);
     }
 }

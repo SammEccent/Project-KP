@@ -11,8 +11,8 @@ class beritaController extends Controller
                 'css/berita.css',       // Untuk gaya konten utama halaman ini
             ]
         ];
-        $this->view('components/header', $data);
-        $this->view('berita', $data);
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/berita', $data);
+        $this->view('public/components/footer');
     }
 }
