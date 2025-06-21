@@ -46,7 +46,7 @@
             <span class="material-icons" aria-hidden="true">account_circle</span>
           </button>
           <div class="dropdown-menu" id="user-menu" role="menu" style="right:0; left:auto; min-width:120px;">
-            <a href="#" class="dropdown-link" role="menuitem">Login</a>
+            <a href="<?= BASE_URL ?>/admin/login" class="dropdown-link" role="menuitem">Login</a>
           </div>
         </div>
       </nav>

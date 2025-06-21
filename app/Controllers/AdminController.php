@@ -1,6 +1,7 @@
 <?php
 class AdminController extends Controller {
     public function dashboard() {
+        $this->requireLogin();
         $data = [
             'pageTitle' => 'Admin Dashboard',
             'cssFiles' => [
@@ -10,6 +11,7 @@ class AdminController extends Controller {
         $this->view('admin/dashboard', $data);
     }
     public function strukturOrganisasi() {
+        $this->requireLogin();
         $data = [
             'pageTitle' => 'Admin - Struktur Organisasi',
             'cssFiles' => [
@@ -78,6 +80,7 @@ class AdminController extends Controller {
         exit;
     }
     public function fasilitas() {
+        $this->requireLogin();
         $data = [
             'pageTitle' => 'Admin - Fasilitas',
             'cssFiles' => [
@@ -130,6 +133,7 @@ class AdminController extends Controller {
         exit;
     }
     public function berita() {
+        $this->requireLogin();
         $data = [
             'pageTitle' => 'Admin - Berita',
             'cssFiles' => [
@@ -210,5 +214,50 @@ class AdminController extends Controller {
             $_SESSION['flash_messages'] = [];
         }
         $_SESSION['flash_messages'][$type] = $message;
+    }
+    // Login
+    public function login() {
+        // Jika sudah login, redirect ke dashboard
+        if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
+            header('Location: ' . BASE_URL . '/admin/dashboard');
+            exit;
+        }
+        
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'] ?? '';
+            $password = $_POST['password'] ?? '';
+            // Username dan password bisa Anda ganti sesuai kebutuhan
+            $validUser = 'admin';
+            $validPass = 'admin123';
+            if ($username === $validUser && $password === $validPass) {
+                $_SESSION['admin_logged_in'] = true;
+                $_SESSION['admin_username'] = $username;
+                header('Location: ' . BASE_URL . '/admin/dashboard');
+                exit;
+            } else {
+                $error = 'Username atau password salah!';
+            }
+        }
+        $data = [
+            'error' => $error
+        ];
+        $this->view('admin/login', $data);
+    }
+
+    // Logout
+    public function logout() {
+        session_unset();
+        session_destroy();
+        header('Location: ' . BASE_URL . '/');
+        exit;
+    }
+
+    // Proteksi halaman admin
+    private function requireLogin() {
+        if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+            header('Location: ' . BASE_URL . '/admin/login');
+            exit;
+        }
     }
 } 

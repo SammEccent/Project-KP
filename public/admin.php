@@ -24,6 +24,11 @@ $routes = [
     'GET|/admin/berita' => ['AdminController', 'berita'],
     'POST|/admin/berita/save' => ['AdminController', 'beritaSave'],
     'GET|/admin/berita/delete/{id}' => ['AdminController', 'beritaDelete'],
+    
+    // Login & Logout
+    'GET|/admin/login' => ['AdminController', 'login'],
+    'POST|/admin/login' => ['AdminController', 'login'],
+    'GET|/admin/logout' => ['AdminController', 'logout'],
 ];
 
 // Get current URI
