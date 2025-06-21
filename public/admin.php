@@ -1,50 +1,87 @@
 <?php
 require_once '../app/init.php';
 
-// Admin routing system
-class AdminApp {
-    protected $controller = 'AdminController';
-    protected $method = 'dashboard';
-    protected $params = [];
+// Start session
+session_start();
 
-    public function __construct() {
-        $url = $this->parseURL();
-        
-        // For admin routes, we always use AdminController
-        // The first URL segment becomes the method
-        if (isset($url[0])) {
-            if (method_exists('AdminController', $url[0])) {
-                $this->method = $url[0];
-                unset($url[0]);
-            }
-        }
+// Define admin routes
+$routes = [
+    // Dashboard
+    'GET|/admin/dashboard' => ['AdminController', 'dashboard'],
+    'GET|/admin' => ['AdminController', 'dashboard'],
+    
+    // Struktur Organisasi
+    'GET|/admin/strukturOrganisasi' => ['AdminController', 'strukturOrganisasi'],
+    'POST|/admin/strukturOrganisasi/save' => ['AdminController', 'strukturOrganisasiSave'],
+    'GET|/admin/strukturOrganisasi/delete/{id}' => ['AdminController', 'strukturOrganisasiDelete'],
+    
+    // Fasilitas
+    'GET|/admin/fasilitas' => ['AdminController', 'fasilitas'],
+    'POST|/admin/fasilitas/save' => ['AdminController', 'fasilitasSave'],
+    'GET|/admin/fasilitas/delete/{id}' => ['AdminController', 'fasilitasDelete'],
+    
+    // Berita
+    'GET|/admin/berita' => ['AdminController', 'berita'],
+    'POST|/admin/berita/save' => ['AdminController', 'beritaSave'],
+    'GET|/admin/berita/delete/{id}' => ['AdminController', 'beritaDelete'],
+];
 
-        // Require the AdminController file
-        require_once '../app/controllers/AdminController.php';
-        $this->controller = new AdminController();
+// Get current URI
+$uri = $_SERVER['REQUEST_URI'];
+$method = $_SERVER['REQUEST_METHOD'];
 
-        // Set the parameters
-        if (!empty($url)) {
-            $this->params = array_values($url);
-        } else {
-            $this->params = [];
-        }
+// Remove base path from URI
+$basePath = '/Project-KP';
+if (strpos($uri, $basePath) === 0) {
+    $uri = substr($uri, strlen($basePath));
+}
 
-        // Call the controller method with the parameters
-        call_user_func_array([$this->controller, $this->method], $this->params);
+// Remove query string
+$uri = parse_url($uri, PHP_URL_PATH);
+
+// Find matching route
+$matchedRoute = null;
+$params = [];
+
+foreach ($routes as $route => $handler) {
+    list($routeMethod, $routePath) = explode('|', $route);
+    
+    if ($routeMethod !== $method) {
+        continue;
     }
-
-    public function parseURL() {
-        if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
-            $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode('/', $url);
-            return $url;
+    
+    // Convert route parameters to regex
+    $pattern = preg_replace('/\{([^}]+)\}/', '([^/]+)', $routePath);
+    $pattern = '#^' . $pattern . '$#';
+    
+    if (preg_match($pattern, $uri, $matches)) {
+        $matchedRoute = $handler;
+        // Extract parameters
+        preg_match_all('/\{([^}]+)\}/', $routePath, $paramNames);
+        for ($i = 1; $i < count($matches); $i++) {
+            $params[$paramNames[1][$i-1]] = $matches[$i];
         }
-        return [];
+        break;
     }
 }
 
-// Initialize admin app
-$adminApp = new AdminApp();
+if ($matchedRoute) {
+    list($controllerName, $methodName) = $matchedRoute;
+    
+    // Create controller instance
+    $controller = new $controllerName();
+    
+    // Call method with parameters
+    if (!empty($params)) {
+        call_user_func_array([$controller, $methodName], $params);
+    } else {
+        $controller->$methodName();
+    }
+} else {
+    // 404 Not Found
+    http_response_code(404);
+    echo '<h1>404 - Halaman Admin Tidak Ditemukan</h1>';
+    echo '<p>URL yang Anda cari tidak ditemukan.</p>';
+    echo '<a href="' . BASE_URL . '/admin">Kembali ke Dashboard</a>';
+}
 ?> 

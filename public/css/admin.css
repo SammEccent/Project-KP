@@ -85,8 +85,25 @@ body {
     margin-left: 80px;
 }
 
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.page-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
 /* Typography */
-.main h1, .main h2 {
+.main h1, .main h2, .main h3 {
     color: #222;
     margin-bottom: 20px;
 }
@@ -101,15 +118,109 @@ body {
     font-weight: 400;
 }
 
+.main h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.form-container {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.form-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.form-text {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Filter Container */
+.filter-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+    align-items: end;
+}
+
+.filter-group {
+    flex: 1;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
 /* Table Styles */
+.table-container {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .main table {
     border-collapse: collapse;
     background: #fafbfc;
     width: 100%;
-    margin-top: 20px;
-    border-radius: 8px;
+    margin-top: 0;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: none;
 }
 
 .main table th, .main table td {
@@ -133,6 +244,46 @@ body {
 
 .main table tr:hover {
     background: #e8f4fd;
+}
+
+/* Badge Styles */
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.badge-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.badge-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.badge-info {
+    background: #17a2b8;
+    color: #fff;
+}
+
+.badge-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.badge-danger {
+    background: #dc3545;
+    color: #fff;
 }
 
 /* Button Styles */
@@ -164,6 +315,14 @@ body {
     background: #0056b3;
 }
 
+.btn-secondary {
+    background: #6c757d;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
 .btn-warning {
     background: #ffc107;
     color: #212529;
@@ -180,6 +339,14 @@ body {
 
 .btn-danger:hover {
     background: #c82333;
+}
+
+.btn-info {
+    background: #17a2b8;
+}
+
+.btn-info:hover {
+    background: #138496;
 }
 
 /* Dashboard Stats */
@@ -240,6 +407,21 @@ body {
     .main table th, .main table td {
         padding: 8px 12px;
     }
+    
+    .filter-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 600px) {
@@ -254,5 +436,13 @@ body {
     
     .main h2 {
         font-size: 1.5em;
+    }
+    
+    .form-card {
+        padding: 15px;
+    }
+    
+    .filter-container {
+        padding: 15px;
     }
 } 
