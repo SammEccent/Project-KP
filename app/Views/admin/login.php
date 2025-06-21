@@ -69,12 +69,19 @@
         .form-group {
             margin-bottom: 22px;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .form-group label {
             font-weight: 500;
             color: #334155;
             margin-bottom: 6px;
             display: block;
+        }
+        .form-group .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
         .form-control {
             width: 100%;
@@ -94,11 +101,12 @@
         }
         .form-group .material-icons-outlined {
             position: absolute;
-            left: 12px;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
             color: #64748b;
             font-size: 1.3em;
+            pointer-events: none;
         }
         .form-group .toggle-password {
             position: absolute;
@@ -153,16 +161,20 @@
         <form method="POST" action="<?= BASE_URL ?>/admin/login" autocomplete="off">
             <div class="form-group">
                 <label for="username">Username</label>
-                <span class="material-icons-outlined">person</span>
-                <input type="text" id="username" name="username" class="form-control" required autofocus placeholder="Username">
+                <div class="input-wrapper">
+                    <span class="material-icons-outlined">person</span>
+                    <input type="text" id="username" name="username" class="form-control" required autofocus placeholder="Username">
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <span class="material-icons-outlined">lock</span>
-                <input type="password" id="password" name="password" class="form-control" required placeholder="Password">
-                <button type="button" class="toggle-password" onclick="togglePassword()" tabindex="-1">
-                    <span class="material-icons-outlined" id="eyeIcon">visibility_off</span>
-                </button>
+                <div class="input-wrapper">
+                    <span class="material-icons-outlined">lock</span>
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="Password">
+                    <button type="button" class="toggle-password" onclick="togglePassword()" tabindex="-1">
+                        <span class="material-icons-outlined" id="eyeIcon">visibility_off</span>
+                    </button>
+                </div>
             </div>
             <button type="submit" class="btn-login">Login</button>
         </form>
