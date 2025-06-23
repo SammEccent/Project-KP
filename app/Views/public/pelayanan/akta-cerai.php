@@ -87,12 +87,6 @@
                                 <i class="material-icons">download</i>
                             </span>
                         </a>
-                        <a href="/downloads/akta-cerai/checklist-persyaratan.pdf" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <span>Checklist Persyaratan</span>
-                            <span class="badge bg-primary rounded-pill">
-                                <i class="material-icons">download</i>
-                            </span>
-                        </a>
                     </div>
                 </div>
             </div>
