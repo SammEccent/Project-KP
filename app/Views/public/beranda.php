@@ -6,6 +6,7 @@
         alt="Gambar gedung kelurahan"
         class="hero-image"
         loading="lazy"
+        style="aspect-ratio: 16/7; object-fit: cover; min-height: 220px; background: #e3e3e3;"
       />
     </section>
     <section class="img-desc-section">
