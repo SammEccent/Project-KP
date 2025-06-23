@@ -6,11 +6,41 @@ class AdminController extends Controller {
     }
     public function dashboard() {
         $this->requireLogin();
+        // Struktur Organisasi
+        require_once '../app/Models/StrukturOrganisasi.php';
+        $strukturModel = new \App\Models\StrukturOrganisasi();
+        $totalStruktur = 0;
+        if (method_exists($strukturModel, 'getAll')) {
+            $allStruktur = $strukturModel->getAll();
+            $totalStruktur = is_array($allStruktur) ? count($allStruktur) : 0;
+        }
+
+        // Fasilitas
+        $totalFasilitas = 0;
+        require_once '../app/Core/Database.php';
+        $db = new \Database();
+        $db->prepare('SELECT COUNT(*) as total FROM fasilitas');
+        $result = $db->fetch();
+        if ($result && isset($result['total'])) {
+            $totalFasilitas = $result['total'];
+        }
+
+        // Berita (sementara 0, bisa diubah jika sudah ada tabel/model berita)
+        $totalBerita = 0;
+        // $db->prepare('SELECT COUNT(*) as total FROM berita');
+        // $result = $db->fetch();
+        // if ($result && isset($result['total'])) {
+        //     $totalBerita = $result['total'];
+        // }
+
         $data = [
             'pageTitle' => 'Admin Dashboard',
             'cssFiles' => [
                 'css/admin.css'
-            ]
+            ],
+            'totalStruktur' => $totalStruktur,
+            'totalFasilitas' => $totalFasilitas,
+            'totalBerita' => $totalBerita
         ];
         $this->view('admin/dashboard', $data);
     }

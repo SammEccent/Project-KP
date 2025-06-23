@@ -28,7 +28,10 @@
                 <span class="material-icons-outlined">groups</span>
                 Struktur Organisasi
             </h3>
-            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">15</p>
+            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">
+                <?= isset(
+                    $data['totalStruktur']) ? $data['totalStruktur'] : 0; ?>
+            </p>
             <small>Total Pejabat</small>
         </div>
 
@@ -37,7 +40,9 @@
                 <span class="material-icons-outlined">apartment</span>
                 Fasilitas
             </h3>
-            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">25</p>
+            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">
+                <?= isset($data['totalFasilitas']) ? $data['totalFasilitas'] : 0; ?>
+            </p>
             <small>Total Fasilitas</small>
         </div>
 
@@ -46,7 +51,9 @@
                 <span class="material-icons-outlined">article</span>
                 Berita
             </h3>
-            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">42</p>
+            <p style="font-size: 2em; font-weight: 700; margin-top: 10px;">
+                <?= isset($data['totalBerita']) ? $data['totalBerita'] : 0; ?>
+            </p>
             <small>Total Berita</small>
         </div>
 
