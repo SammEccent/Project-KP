@@ -31,14 +31,12 @@ class App {
             }
         }
 
-        // Set the parameters
-        if (!empty($url)) {
-            $this->params = array_values($url); // Re-index the array
-        } else {
-            $this->params = []; // No parameters
-        }
+        // Set the parameters (slug)
+        $this->params = $url ? array_values($url) : [];
 
-        // Call the controller method with the parameters
+       
+
+        // Call the controller method with the parameters (& & pass the params if any)
         call_user_func_array([$this->controller, $this->method], $this->params);
 
     }

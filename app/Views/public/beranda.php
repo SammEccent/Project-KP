@@ -2,7 +2,7 @@
       <h1>Selamat Datang di Website Resmi Kelurahan Lengkong Wetan</h1>
       <p>Melayani masyarakat dengan transparansi, profesionalisme, dan inovasi.</p>
       <img
-        src="<?=BASE_URL?>/img/kantor.jpg"
+        src="<?=BASE_URL?>/img/slideshow/kantor.jpg"
         alt="Gambar gedung kelurahan"
         class="hero-image"
         loading="lazy"
@@ -10,7 +10,7 @@
       />
     </section>
     <section class="img-desc-section">
-        <img src="img/drafLurah.jpg" alt="Gambar Kiri">
+        <img src="img/slideshow/drafLurah.jpg" alt="Gambar Kiri">
         <div class="desc-kanan">
             <h2>Sambutan Lurah</h2>
             <p>Selamat datang di website resmi Kelurahan kami. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat dengan transparansi, profesionalisme, dan inovasi. Melalui platform ini, kami berharap dapat menjangkau lebih banyak warga dan mempermudah akses informasi serta layanan publik.</p>

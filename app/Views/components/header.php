@@ -22,7 +22,7 @@
 <header class="header" role="banner">
     <div class="header-container">
       <a href="#" class="brand" aria-label="Website Kelurahan Beranda">
-        <img src="<?=BASE_URL?>/public/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="brand-logo" />
+        <img src="<?=BASE_URL?>/img/slideshow/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="brand-logo" />
       </a>
       <?php
         require_once __DIR__ . '/../components/navbar.php';

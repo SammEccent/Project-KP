@@ -1,162 +1,110 @@
 <section class="hero">
-        <h1>Berita Terkini dan Terpercaya</h1>
-        <p>Dapatkan update berita terbaru seputar politik, ekonomi, olahraga, teknologi dan hiburan dari seluruh dunia
-        </p>
-    </section>
+    <h1>Pusat Informasi Kelurahan</h1>
+    <p>Temukan beragam informasi dan berita terkini yang relevan untuk masyarakat. Mari bersama-sama terus ikuti perkembangan dan ambil bagian dalam kemajuan kelurahan kita!</p>
+</section>
 
-    <div class="container">
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; width: 100%;">
-            <article class="main-news">
-                <img src="https://placehold.co/800x400?text=Berita+Utama"
-                    alt="Gambar berita utama tentang perkembangan teknologi terbaru">
-                <span class="news-category">Teknologi</span>
-                <h2>Perusahaan Teknologi Rilis Produk Terbaru dengan Fitur AI Canggih</h2>
+<div class="container">
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; width: 100%;">
+        <article class="main-news">
+            <?php if (!empty($headlineNews)) : ?>
+                <img src="<?= BASE_URL . "/" . htmlspecialchars($headlineNews['gambar']) ?>" 
+                     alt="<?= htmlspecialchars($headlineNews['judul']) ?>">
+                <span class="news-category"><?= htmlspecialchars($headlineNews['kategori_nama']) ?></span>
+                <h2><?= htmlspecialchars($headlineNews['judul']) ?></h2>
                 <div class="news-meta">
-                    <span><i>📅</i> 15 Juni 2023</span>
-                    <span><i>👤</i> John Doe</span>
-                    <span><i>👁️</i> 1.2K views</span>
+                    <span><i>📅</i> <?= date('d F Y', strtotime($headlineNews['tanggal_publish'])) ?></span>
+                    <span><i>👤</i> <?= htmlspecialchars($headlineNews['penulis']) ?></span>
+                    <span><i>👁️</i> <?= htmlspecialchars($headlineNews['view_count']) ?> views</span>
                 </div>
-                <p>Perusahaan teknologi terkemuka hari ini meluncurkan produk terbarunya yang dilengkapi dengan
-                    kecerdasan buatan (AI) generasi terbaru. Produk ini diklaim mampu mempelajari kebiasaan pengguna dan
-                    memberikan pengalaman personalisasi yang belum pernah ada sebelumnya. CEO perusahaan menyatakan
-                    bahwa inovasi ini akan mengubah cara kita berinteraksi dengan teknologi sehari-hari.</p>
-                <p>Produk baru ini juga dilengkapi dengan fitur keamanan mutakhir yang menggunakan biometrik tingkat
-                    lanjut untuk melindungi data pengguna. Analis industri memprediksi bahwa peluncuran ini akan
-                    menaikkan standar di pasar perangkat pintar dan memicu persaingan ketat antar produsen teknologi.
-                </p>
-                <a href="#" class="read-more">Baca Selengkapnya</a>
-            </article>
+                <p><?= htmlspecialchars($headlineNews['isi_pendek']) ?></p>
+                <a href="<?=BASE_URL."/berita/detail/".htmlspecialchars($headlineNews['slug']) ?>" class="read-more">Baca Selengkapnya</a>
+            <?php else : ?>
+                <p>Belum ada berita utama.</p>
+            <?php endif; ?>
+        </article>
 
-            <aside class="sidebar">
-                <section class="popular-news">
-                    <h3 class="section-title">Populer</h3>
-                    <ul class="popular-list">
+        <aside class="sidebar">
+            <section class="popular-news">
+                <h3 class="section-title">Populer</h3>
+                <ul class="popular-list">
+                    <?php foreach ($popularNews as $news) : ?>
                         <li>
-                            <a href="#">
-                                <img src="https://placehold.co/100x80?text=Populer+1"
-                                    alt="Gambar berita populer tentang kebijakan baru">
+                            <a href="/berita/<?= htmlspecialchars($news['slug']) ?>">
+                                <img src="<?= BASE_URL . "/" . htmlspecialchars($news['gambar'] ?? 'default.jpg') ?>" 
+                                     alt="<?= htmlspecialchars($news['judul']) ?>">
                                 <div>
-                                    <h4>Pemerintah Umumkan Kebijakan Baru untuk Sektor Pendidikan</h4>
+                                    <h4><?= htmlspecialchars($news['judul']) ?></h4>
                                     <div class="news-meta">
-                                        <span><i>📅</i> 10 Juni 2023</span>
+                                        <span><i>📅</i> <?= date('d M Y', strtotime($news['tanggal_publish'])) ?></span>
                                     </div>
                                 </div>
                             </a>
                         </li>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
+
+            <section class="categories">
+                <h3 class="section-title">Kategori</h3>
+                <ul class="category-list">
+                    <?php foreach ($categories as $kategori) : ?>
                         <li>
-                            <a href="#">
-                                <img src="https://placehold.co/100x80?text=Populer+2"
-                                    alt="Gambar berita populer tentang bencana alam">
-                                <div>
-                                    <h4>Bencana Alam Terjadi di Beberapa Wilayah, Tim SAR Dikerahkan</h4>
-                                    <div class="news-meta">
-                                        <span><i>📅</i> 9 Juni 2023</span>
-                                    </div>
-                                </div>
+                            <a href="<?=BASE_URL."/berita/kategori/". htmlspecialchars($kategori['slug']) ?>">
+                                <?= htmlspecialchars($kategori['nama']) ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://placehold.co/100x80?text=Populer+3"
-                                    alt="Gambar berita populer tentang kesehatan">
-                                <div>
-                                    <h4>Penelitian Terbaru Ungkap Manfaat Tak Terduga dari Buah Lokal</h4>
-                                    <div class="news-meta">
-                                        <span><i>📅</i> 8 Juni 2023</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="https://placehold.co/100x80?text=Populer+4"
-                                    alt="Gambar berita populer tentang teknologi">
-                                <div>
-                                    <h4>Aplikasi Baru Permudah Masyarakat Akses Layanan Kesehatan</h4>
-                                    <div class="news-meta">
-                                        <span><i>📅</i> 7 Juni 2023</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="categories">
-                    <h3 class="section-title">Kategori</h3>
-                    <ul class="category-list">
-                        <li><a href="#">Politik</a></li>
-                        <li><a href="#">Ekonomi</a></li>
-                        <li><a href="#">Olahraga</a></li>
-                        <li><a href="#">Teknologi</a></li>
-                        <li><a href="#">Hiburan</a></li>
-                        <li><a href="#">Kesehatan</a></li>
-                        <li><a href="#">Pendidikan</a></li>
-                        <li><a href="#">Internasional</a></li>
-                    </ul>
-                </section>
-            </aside>
-        </div>
-        <section class="latest-news" style="width: 100%;">
-            <h2 class="section-title">Berita Terkini</h2>
-            <div class="news-grid">
-                <article class="news-card">
-                    <img src="https://placehold.co/400x200?text=Berita+1"
-                        alt="Gambar berita tentang pertemuan pimpinan negara">
-                    <div class="news-card-content">
-                        <span class="news-category">Politik</span>
-                        <h3>Pertemuan Pimpinan Negara Bahas Kerja Sama Ekonomi Regional</h3>
-                        <p>Para pemimpin negara-negara di kawasan bertemu untuk membahas penguatan kerja sama
-                            ekonomi pasca pandemi.</p>
-                        <div class="news-meta">
-                            <span><i>📅</i> 14 Juni 2023</span>
-                            <span><i>👁️</i> 856 views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <img src="https://placehold.co/400x200?text=Berita+2"
-                        alt="Gambar berita tentang pertandingan sepak bola">
-                    <div class="news-card-content">
-                        <span class="news-category">Olahraga</span>
-                        <h3>Tim Nasional Juara Turnamen Internasional</h3>
-                        <p>Tim nasional berhasil meraih gelar juara setelah mengalahkan lawan kuat dengan skor 3-1
-                            di final.</p>
-                        <div class="news-meta">
-                            <span><i>📅</i> 14 Juni 2023</span>
-                            <span><i>👁️</i> 1.5K views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <img src="https://placehold.co/400x200?text=Berita+3" alt="Gambar berita tentang pasar saham">
-                    <div class="news-card-content">
-                        <span class="news-category">Ekonomi</span>
-                        <h3>IHSG Menguat di Tengah Ketidakpastian Pasar Global</h3>
-                        <p>Indeks Harga Saham Gabungan (IHSG) ditutup menguat 1,2% meskipun tekanan dari pasar
-                            keuangan global.</p>
-                        <div class="news-meta">
-                            <span><i>📅</i> 13 Juni 2023</span>
-                            <span><i>👁️</i> 723 views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <img src="https://placehold.co/400x200?text=Berita+4" alt="Gambar berita tentang film terbaru">
-                    <div class="news-card-content">
-                        <span class="news-category">Hiburan</span>
-                        <h3>Film Terbaru Sutradara Ternyata Raih Penghargaan Internasional</h3>
-                        <p>Film karya sutradara lokal berhasil meraih penghargaan di festival film internasional
-                            bergengsi.</p>
-                        <div class="news-meta">
-                            <span><i>📅</i> 12 Juni 2023</span>
-                            <span><i>👁️</i> 942 views</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
+        </aside>
     </div>
+
+    <section class="latest-news" style="width: 100%;">
+        <h2 class="section-title">Berita Terkini</h2>
+        <div class="news-grid">
+            <?php foreach ($latestNews as $news) : ?>
+                <article class="news-card">
+                    <img src="<?=BASE_URL."/".htmlspecialchars($news['gambar'] ?? 'default.jpg') ?>" 
+                         alt="<?= htmlspecialchars($news['judul']) ?>">
+                    <div class="news-card-content">
+                        <span class="news-category"><?= htmlspecialchars($news['kategori_nama']) ?></span>
+                        <h3>
+                            <a href="<?= BASE_URL . "/berita/detail/" . htmlspecialchars($news['slug']) ?>">
+                                <?= htmlspecialchars($news['judul']) ?>
+                            </a>
+                        </h3>
+                        <p><?= htmlspecialchars($news['isi_pendek']) ?></p>
+                        <div class="news-meta">
+                            <span><i>📅</i> <?= date('d M Y', strtotime($news['tanggal_publish'])) ?></span>
+                            <span><i>👁️</i> <?= number_format($news['view_count']) ?> views</span>
+                        </div>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <?php if ($pagination['currentPage'] > 1) : ?>
+                <a href="?page=<?= $pagination['currentPage'] - 1 ?>" class="prev-link">&laquo; Sebelumnya</a>
+            <?php endif; ?>
+            
+            <?php 
+            // Hitung range yang akan ditampilkan (max 5 nomor halaman)
+            $startPage = max(1, $pagination['currentPage'] - 2);
+            $endPage = min($pagination['totalPages'], $pagination['currentPage'] + 2);
+            
+            // Tampilkan nomor halaman
+            for ($i = $startPage; $i <= $endPage; $i++) : 
+            ?>
+                <a href="?page=<?= $i ?>" class="<?= ($i == $pagination['currentPage']) ? 'active' : '' ?>">
+                    <?= $i ?>
+                </a>
+            <?php endfor; ?>
+            
+            <?php if ($pagination['currentPage'] < $pagination['totalPages']) : ?>
+                <a href="?page=<?= $pagination['currentPage'] + 1 ?>" class="next-link">Berikutnya &raquo;</a>
+            <?php endif; ?>
+        </div>
+    </section>
+</div>
