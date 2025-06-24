@@ -31,9 +31,9 @@ class fasilitasController extends Controller{
             ],
             'fasilitasKesehatan' => $fasilitasModel->getFasilitasKesehatan()
         ];
-        $this->view('components/header', $data);
-        $this->view('fasilitas/kesehatan', $data);
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/kesehatan', $data);
+        $this->view('public/components/footer');
     }
 
     // Fasilitas Ibadah
@@ -48,9 +48,9 @@ class fasilitasController extends Controller{
             ],
             'fasilitasIbadah' => $fasilitasModel->getFasilitasIbadah()
         ];
-        $this->view('components/header', $data);
-        $this->view('fasilitas/ibadah', $data);
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/ibadah', $data);
+        $this->view('public/components/footer');
     }
 
     // Fasilitas Balai Warga
@@ -65,8 +65,8 @@ class fasilitasController extends Controller{
             ],
             'fasilitasBalaiWarga' => $fasilitasModel->getFasilitasBalaiWarga()
         ];
-        $this->view('components/header', $data);
-        $this->view('fasilitas/balaiwarga', $data);
-        $this->view('components/footer');
+        $this->view('public/components/header', $data);
+        $this->view('public/fasilitas/balaiwarga', $data);
+        $this->view('public/components/footer');
     }
 }

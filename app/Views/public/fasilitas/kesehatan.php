@@ -12,7 +12,7 @@
 		</thead>
 		<tbody>
             <?php $no = 1; ?>
-            <?php foreach ($fasilitasPendidikan as $fasilitas): ?>
+            <?php foreach ($fasilitasKesehatan as $fasilitas): ?>
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= htmlspecialchars($fasilitas['nama']); ?></td>
