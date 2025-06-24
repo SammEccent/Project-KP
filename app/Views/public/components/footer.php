@@ -2,7 +2,7 @@
 
   <footer class="footer" role="contentinfo">
     <div class="footer-container footer-grid">
-      <img src="<?=BASE_URL?>/img/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="logo-image" />
+      <img src="<?=BASE_URL?>/img/slideshow/Lambang_Kota_Tangerang_Selatan.png" alt="Logo Kelurahan" class="logo-image" />
       <section class="footer-section footer-address" aria-label="Alamat kantor kelurahan">
         <h3>Alamat Kantor Kelurahan</h3>
         <address>
