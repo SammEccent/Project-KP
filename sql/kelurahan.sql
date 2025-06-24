@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jun 2025 pada 10.12
+-- Waktu pembuatan: 24 Jun 2025 pada 19.51
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -99,7 +99,7 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id`, `slug`, `judul`, `isi_pendek`, `kategori_id`, `admin_id`, `status`, `tanggal_publish`, `dibuat_pada`, `diupdate_pada`, `is_headline`, `view_count`, `published_at`) VALUES
-(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 1, 134, '2025-06-24 00:17:48'),
+(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 1, 136, '2025-06-24 00:17:48'),
 (2, 'rencana-program-kerja', 'Rencana Program Kerja 2024', 'Program kerja desa untuk tahun 2024 telah disusun dan akan dilaksanakan mulai bulan depan.', 2, 2, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 0, 59, '2025-06-24 00:17:48'),
 (3, 'kegiatan-gotong-royong', 'Kegiatan Gotong Royong Masyarakat', 'Warga desa akan melaksanakan gotong royong untuk membersihkan lingkungan pada akhir pekan.', 3, 1, 'draft', NULL, '2025-06-23 23:02:17', NULL, 0, 86, '2025-06-24 00:17:48');
 
@@ -155,9 +155,22 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id`, `nama`, `slug`, `jenis_id`, `alamat`, `kontak`, `link_map`, `deskripsi`, `admin_id`, `dibuat_pada`, `diupdate_pada`) VALUES
-(1, 'Puskesmas Kelurahan', 'puskesmas-kelurahan', 1, 'Jl. Sehat No. 10', '08123456789', 'https://maps.google.com/maps?q=puskesmas+kelurahan', 'Puskesmas dengan layanan 24 jam', 1, '2025-06-23 23:25:46', NULL),
-(2, 'SD Negeri 1', 'sd-negeri-1', 2, 'Jl. Pendidikan No. 5', '08234567890', 'https://maps.google.com/maps?q=sd+negeri+1', 'Sekolah Dasar Negeri dengan fasilitas lengkap', 2, '2025-06-23 23:25:46', NULL),
-(3, 'Lapangan Sepak Bola', 'lapangan-sepak-bola', 3, 'Jl. Olahraga No. 20', NULL, 'https://maps.google.com/maps?q=lapangan+sepak+bola', 'Lapangan sepak bola dengan rumput sintetis', 1, '2025-06-23 23:25:46', NULL);
+(1, 'SMP Plus Berkualitas Lengkong Mandiri', 'SMP-Plus-BLM', 1, 'Jl. BSD Bintaro, RT.04/RW.10, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '02153191957', 'https://maps.app.goo.gl/s92Z7tke8kex4DAS8', NULL, 1, '2025-06-25 00:17:29', NULL),
+(2, 'SMKS Plus Berkualitas Lengkong Mandiri', 'SMKS-Plus-BLM', 1, 'Jl. BSD Bintaro, RT.04/RW.10, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '02153191957', 'https://maps.app.goo.gl/8y6czLwshcK6Ksgw7', NULL, 2, '2025-06-25 00:23:44', NULL),
+(3, 'SDN Lengkong Wetan 01', 'SDN-lengkong-wetan-01', 1, 'Jl. Lengkong Wetan, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/m3LSZFsnFGFNrvyz5', NULL, 1, '2025-06-25 00:26:28', NULL),
+(4, 'SDN Lengkong Wetan 02', 'SDN-Lengkong-Wetan-02', 1, 'Jl. BSD Bintaro No.32, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '081255528425', 'https://maps.app.goo.gl/wnyHuYhmQaMjCFaFA', NULL, 1, '2025-06-25 00:28:13', NULL),
+(5, 'MAS Nur As-Sholihat', 'MAS-Nur-As-Sholihat', 1, 'Jalan Kampung Perigi, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '085121918086', 'https://maps.app.goo.gl/MovjAvSsf3pj9fmUA', NULL, 2, '2025-06-25 00:30:19', NULL),
+(6, 'Masjid Jami\'Al-Hidayah', 'Masjid-Jami\'Al-Hidayah', 3, 'Jl. Lengkong Wetan, Lengkong Karya, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/WJwsasi8CUhn9UML6', NULL, 1, '2025-06-25 00:33:57', NULL),
+(7, 'Masjid Al Istiqomah', 'Masjid-Al-Istiqomah', 3, 'Jl. Gn. Sumbing No.Blok E, RT.2/RW.Giriloka 1, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15322', '087877559355', 'https://maps.app.goo.gl/v3cfHFiKm3HN4DHG9', NULL, 1, '2025-06-25 00:35:13', NULL),
+(8, 'Masjid Jami\' Al-Kautsar', 'Masjid-Jami\'-Al-Kautsar', 3, 'Jl. Lengkong Wetan No.19, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/Mbb7czq9v8p9dbYT9', NULL, 1, '2025-06-25 00:36:22', NULL),
+(9, 'Masjid Jami Ar Rahmah', 'Masjid-Jami-Ar-Rahmah', 3, 'Jl. Raya Ciater No.50, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/MNYf84aMPamRaYPb8', NULL, 1, '2025-06-25 00:37:45', NULL),
+(10, 'Masjid Jami An Nur', 'Masjid-Jami-An-Nur', 3, 'Jl. Manunggal No.54, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/vv6wZ69LuT1RowB67', NULL, 1, '2025-06-25 00:39:26', NULL),
+(11, 'Puskesmas Lengkong Wetan', 'Puskesmas-Lengkong-Wetan', 2, 'Jalan Perum GSB, RT.03/RW.09, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15322', '02122212020', 'https://maps.app.goo.gl/aLWv5R1FeDKEKNtL7', NULL, 1, '2025-06-25 00:42:01', NULL),
+(12, 'RS Columbia Asia BSD', 'RS-Columbia-Asia-BSD', 2, 'BSD Serpong, Jl. Letnan Sutopo No.7 Kavling Komplek 3A, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '0215372296', 'https://maps.app.goo.gl/zKHiKQChDu2gDMpBA', NULL, 1, '2025-06-25 00:43:29', NULL),
+(13, 'Posyandu Mahoni', 'Posyandu-Mahoni', 2, 'Jl. Nn No.4, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/7RFj7SoRTpbVG7qk9', NULL, 1, '2025-06-25 00:45:35', NULL),
+(14, 'Proklamasi Bsd Hospital', 'Proklamasi-Bsd-Hospital', 2, 'Jl. Komp. BSD No.7, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', NULL, 'https://maps.app.goo.gl/rXxBAKXpYMhCmphdA', NULL, 1, '2025-06-25 00:46:36', NULL),
+(15, 'Klinik Selaras Bsd', 'Klinik-Selaras-Bsd', 2, 'Jl. Pahlawan Seribu Ruko BSD Sektor IV, Bumi serpong Damai No.43-45 Blok E, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan, Banten 15310', '0215370310', 'https://maps.app.goo.gl/qC7VuZdkU13KVt327', NULL, 1, '2025-06-25 00:47:34', NULL),
+(16, 'Balai Warga Giriloka 1', 'Balai-Warga-Giriloka-1', 4, 'Jl. Gn. Merbabu Blok J No.15, Lengkong Wetan, Serpong Sub-District, South Tangerang City, Banten 15310', NULL, 'https://maps.app.goo.gl/3tk38qwiszzFdv1VA', NULL, 1, '2025-06-25 00:48:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -202,9 +215,10 @@ CREATE TABLE `jenis` (
 --
 
 INSERT INTO `jenis` (`id`, `nama`, `deskripsi`, `dibuat_oleh`, `dibuat_pada`) VALUES
-(1, 'Kesehatan', 'Fasilitas pelayanan kesehatan masyarakat', 1, '2025-06-23 23:25:46'),
-(2, 'Pendidikan', 'Sekolah dan fasilitas pendidikan', 1, '2025-06-23 23:25:46'),
-(3, 'Olahraga', 'Fasilitas olahraga dan rekreasi', 2, '2025-06-23 23:25:46');
+(1, 'Pendidikan', 'Sekolah dan fasilitas pendidikan', 1, '2025-06-23 23:25:46'),
+(2, 'Kesehatan', 'Fasilitas kesehatan', 1, '2025-06-23 23:25:46'),
+(3, 'Ibadah', 'Tempat ibadah', 2, '2025-06-23 23:25:46'),
+(4, 'Balai Warga', 'Ini balai warga', 1, '2025-06-24 15:28:50');
 
 -- --------------------------------------------------------
 
@@ -367,7 +381,7 @@ ALTER TABLE `berita_content`
 -- AUTO_INCREMENT untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `jabatan`
@@ -379,7 +393,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
