@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jun 2025 pada 18.39
+-- Waktu pembuatan: 24 Jun 2025 pada 10.12
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -88,17 +88,20 @@ CREATE TABLE `berita` (
   `status` enum('draft','published','archived') NOT NULL DEFAULT 'draft',
   `tanggal_publish` datetime DEFAULT NULL,
   `dibuat_pada` datetime NOT NULL DEFAULT current_timestamp(),
-  `diupdate_pada` datetime DEFAULT NULL
+  `diupdate_pada` datetime DEFAULT NULL,
+  `is_headline` tinyint(1) DEFAULT 0 COMMENT 'Menandakan apakah berita ini adalah berita utama',
+  `view_count` int(11) DEFAULT 0 COMMENT 'Jumlah pembaca untuk berita ini',
+  `published_at` datetime DEFAULT current_timestamp() COMMENT 'Waktu publikasi berita'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `berita`
 --
 
-INSERT INTO `berita` (`id`, `slug`, `judul`, `isi_pendek`, `kategori_id`, `admin_id`, `status`, `tanggal_publish`, `dibuat_pada`, `diupdate_pada`) VALUES
-(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL),
-(2, 'rencana-program-kerja', 'Rencana Program Kerja 2024', 'Program kerja desa untuk tahun 2024 telah disusun dan akan dilaksanakan mulai bulan depan.', 2, 2, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL),
-(3, 'kegiatan-gotong-royong', 'Kegiatan Gotong Royong Masyarakat', 'Warga desa akan melaksanakan gotong royong untuk membersihkan lingkungan pada akhir pekan.', 3, 1, 'draft', NULL, '2025-06-23 23:02:17', NULL);
+INSERT INTO `berita` (`id`, `slug`, `judul`, `isi_pendek`, `kategori_id`, `admin_id`, `status`, `tanggal_publish`, `dibuat_pada`, `diupdate_pada`, `is_headline`, `view_count`, `published_at`) VALUES
+(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 1, 134, '2025-06-24 00:17:48'),
+(2, 'rencana-program-kerja', 'Rencana Program Kerja 2024', 'Program kerja desa untuk tahun 2024 telah disusun dan akan dilaksanakan mulai bulan depan.', 2, 2, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 0, 59, '2025-06-24 00:17:48'),
+(3, 'kegiatan-gotong-royong', 'Kegiatan Gotong Royong Masyarakat', 'Warga desa akan melaksanakan gotong royong untuk membersihkan lingkungan pada akhir pekan.', 3, 1, 'draft', NULL, '2025-06-23 23:02:17', NULL, 0, 86, '2025-06-24 00:17:48');
 
 -- --------------------------------------------------------
 
@@ -120,11 +123,11 @@ CREATE TABLE `berita_content` (
 --
 
 INSERT INTO `berita_content` (`id`, `berita_id`, `content_type`, `content`, `ordering`, `caption`) VALUES
-(1, 1, 'text', 'Pembangunan jalan ini bertujuan untuk meningkatkan aksesibilitas dan konektivitas antar RW.', 1, NULL),
-(2, 1, 'image', 'C:xampp/htdocs/Project-KP/public/img/upload/berita.png', 2, 'Gambar pembangunan jalan desa'),
+(1, 1, 'text', 'Pembangunan jalan ini memiliki tujuan utama untuk secara signifikan meningkatkan aksesibilitas dan konektivitas antar Rukun Warga (RW), sebuah langkah krusial dalam mendukung perkembangan sosial dan ekonomi di Tangerang, Banten. Dengan infrastruktur jalan yang lebih baik dan terhubung, warga akan merasakan kemudahan mobilitas yang luar biasa, baik untuk aktivitas sehari-hari seperti bekerja, sekolah, atau mengakses fasilitas kesehatan. Hal ini tidak hanya mempersingkat waktu tempuh, tetapi juga mengurangi kemacetan, sehingga kualitas hidup masyarakat dapat meningkat secara keseluruhan.\nLebih dari sekadar mempermudah pergerakan, proyek jalan ini juga diharapkan mampu menjadi katalisator bagi pertumbuhan ekonomi lokal. Konektivitas yang lebih baik antar RW akan memperlancar distribusi barang dan jasa, membuka akses pasar yang lebih luas bagi para pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) yang tersebar di berbagai sudut kota. Para pedagang di pasar tradisional maupun online akan lebih mudah mengirimkan produk mereka, sementara konsumen juga memiliki lebih banyak pilihan akses ke berbagai layanan, pada akhirnya menciptakan ekosistem ekonomi yang lebih dinamis dan inklusif di Tangerang.\nPada akhirnya, peningkatan aksesibilitas dan konektivitas ini akan mempererat jalinan sosial antar komunitas. Dengan kemudahan akses, interaksi antar warga dari RW yang berbeda akan meningkat, mendorong kolaborasi dan semangat kebersamaan dalam berbagai kegiatan sosial atau budaya. Ini adalah investasi jangka panjang yang tidak hanya berfokus pada infrastruktur fisik, tetapi juga berdampak positif pada kohesi sosial dan kemandirian ekonomi masyarakat, menjadikan Tangerang sebagai kota yang lebih terhubung, maju, dan sejahtera bagi seluruh warganya.', 1, NULL),
+(2, 1, 'image', 'img/uploads/berita.png', 2, 'Gambar pembangunan jalan desa'),
 (3, 1, 'video_embed', 'https://www.youtube.com/embed/du7RdszMldE?si=hkq5AKzmP0dTQmWb', 3, 'Video dokumentasi pembangunan jalan'),
 (4, 2, 'text', 'Program kerja ini mencakup berbagai kegiatan yang akan dilaksanakan sepanjang tahun.', 1, NULL),
-(5, 2, 'image', 'C:xampp/htdocs/Project-KP/public/img/upload/berita.png', 2, 'Gambar rapat persiapan program kerja'),
+(5, 2, 'image', 'C:xampp/htdocs/Project-KP/public/img/upload/berita.png', 2, 'Gambar rapat persiapan program kerja'),
 (6, 3, 'text', 'Kegiatan ini diharapkan dapat meningkatkan kebersihan dan kesehatan lingkungan.', 1, NULL);
 
 -- --------------------------------------------------------
@@ -225,7 +228,13 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id`, `slug`, `nama`, `deskripsi`, `dibuat_oleh`, `dibuat_pada`) VALUES
 (1, 'berita-desa', 'Berita Desa', 'Informasi seputar kegiatan desa', 1, '2025-06-23 23:01:18'),
 (2, 'program-kerja', 'Program Kerja', 'Rencana kegiatan dan anggaran desa', 1, '2025-06-23 23:01:18'),
-(3, 'kegiatan-masyarakat', 'Kegiatan Masyarakat', 'Kegiatan yang melibatkan masyarakat desa', 2, '2025-06-23 23:01:18');
+(3, 'kegiatan-masyarakat', 'Kegiatan Masyarakat', 'Kegiatan yang melibatkan masyarakat desa', 2, '2025-06-23 23:01:18'),
+(4, 'berita-lokal', 'Berita Lokal', 'Berita terkait dengan peristiwa lokal di daerah.', 1, '2025-06-24 10:37:00'),
+(5, 'acara-dan-pengumuman', 'Acara dan Pengumuman', 'Informasi tentang acara dan pengumuman penting.', 1, '2025-06-24 10:37:00'),
+(6, 'kesehatan-dan-lingkungan', 'Kesehatan dan Lingkungan', 'Berita mengenai kesehatan dan isu lingkungan.', 1, '2025-06-24 10:37:00'),
+(7, 'pendidikan-dan-pelatihan', 'Pendidikan dan Pelatihan', 'Informasi tentang pendidikan dan pelatihan yang tersedia.', 1, '2025-06-24 10:37:00'),
+(8, 'inovasi-dan-teknologi', 'Inovasi dan Teknologi', 'Berita terbaru tentang inovasi dan teknologi.', 1, '2025-06-24 10:37:00'),
+(9, 'sosialisasi-dan-penyuluhan', 'Sosialisasi dan Penyuluhan', 'Kegiatan sosialisasi dan penyuluhan yang dilakukan.', 1, '2025-06-24 10:37:00');
 
 -- --------------------------------------------------------
 
@@ -376,7 +385,7 @@ ALTER TABLE `jenis`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `struktur_organisasi`
