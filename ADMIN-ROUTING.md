@@ -10,6 +10,7 @@ Halaman admin berfungsi sebagai CMS (Content Management System) untuk mengelola 
 
 - **Dashboard**: `http://localhost/Project-KP/admin/dashboard`
 - **Struktur Organisasi**: `http://localhost/Project-KP/admin/strukturOrganisasi`
+- **Data Anggota**: `http://localhost/Project-KP/admin/anggota`
 - **Fasilitas**: `http://localhost/Project-KP/admin/fasilitas`
 - **Berita**: `http://localhost/Project-KP/admin/berita`
 
@@ -46,7 +47,32 @@ Halaman admin berfungsi sebagai CMS (Content Management System) untuk mengelola 
 - `POST /admin/strukturOrganisasi/save` - Simpan data (create/update)
 - `GET /admin/strukturOrganisasi/delete/{id}` - Hapus data
 
-### **2. Fasilitas**
+### **2. Data Anggota**
+
+**Tujuan**: Mengelola data anggota/pejabat kelurahan yang akan digunakan dalam struktur organisasi.
+
+**Fitur**:
+
+- ✅ Tambah data anggota baru
+- ✅ Edit data anggota
+- ✅ Hapus data anggota
+- ✅ View data dalam tabel
+
+**Field Data**:
+
+- Nama Lengkap (wajib)
+- NIP (opsional)
+- Email (opsional)
+- Telepon (opsional)
+- Alamat (opsional)
+
+**URL Endpoints**:
+
+- `GET /admin/anggota` - Halaman utama
+- `POST /admin/anggota/save` - Simpan data (create/update)
+- `GET /admin/anggota/delete/{id}` - Hapus data
+
+### **3. Fasilitas**
 
 **Tujuan**: Mengelola data fasilitas di setiap kategori (pendidikan, kesehatan, ibadah, balai) yang ditampilkan di halaman user.
 
@@ -72,7 +98,7 @@ Halaman admin berfungsi sebagai CMS (Content Management System) untuk mengelola 
 - `POST /admin/fasilitas/save` - Simpan data (create/update)
 - `GET /admin/fasilitas/delete/{id}` - Hapus data
 
-### **3. Berita**
+### **4. Berita**
 
 **Tujuan**: Mengelola berita yang ditampilkan di halaman berita user.
 

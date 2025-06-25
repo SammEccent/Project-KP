@@ -18,6 +18,10 @@
         <span class="material-icons-outlined">groups</span>
         <span class="nav-text">Struktur Organisasi</span>
     </a>
+    <a href="<?= BASE_URL ?>/admin/anggota">
+        <span class="material-icons-outlined">person</span>
+        <span class="nav-text">Data Anggota</span>
+    </a>
     <a href="<?= BASE_URL ?>/admin/fasilitas">
         <span class="material-icons-outlined">apartment</span>
         <span class="nav-text">Fasilitas</span>
