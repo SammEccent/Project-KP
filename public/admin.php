@@ -15,6 +15,11 @@ $routes = [
     'POST|/admin/strukturOrganisasi/save' => ['AdminController', 'strukturOrganisasiSave'],
     'GET|/admin/strukturOrganisasi/delete/{id}' => ['AdminController', 'strukturOrganisasiDelete'],
     
+    // Data Anggota
+    'GET|/admin/anggota' => ['AdminController', 'anggota'],
+    'POST|/admin/anggota/save' => ['AdminController', 'anggotaSave'],
+    'GET|/admin/anggota/delete/{id}' => ['AdminController', 'anggotaDelete'],
+    
     // Fasilitas
     'GET|/admin/fasilitas' => ['AdminController', 'fasilitas'],
     'POST|/admin/fasilitas/save' => ['AdminController', 'fasilitasSave'],

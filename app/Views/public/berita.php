@@ -29,7 +29,7 @@
                 <ul class="popular-list">
                     <?php foreach ($popularNews as $news) : ?>
                         <li>
-                            <a href="/berita/<?= htmlspecialchars($news['slug']) ?>">
+                            <a href="<?=BASE_URL."/berita/detail/". htmlspecialchars($news['slug']) ?>">
                                 <img src="<?= BASE_URL . "/" . htmlspecialchars($news['gambar'] ?? 'default.jpg') ?>" 
                                      alt="<?= htmlspecialchars($news['judul']) ?>">
                                 <div>

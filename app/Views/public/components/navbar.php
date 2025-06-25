@@ -22,15 +22,10 @@
               <span class="material-icons dropdown-icon" aria-hidden="true">expand_more</span>
             </button>
             <ul class="dropdown-menu" id="fasilitas-menu" role="menu">
-              <?php
-              if (isset($navMenu) && is_array($navMenu) && count($navMenu) > 0) {
-                  foreach ($navMenu as $jenis) {
-                      echo '<li role="none"><a href="' . BASE_URL . '/fasilitas/' . urlencode($jenis['nama']) . '" role="menuitem" class="dropdown-link">' . htmlspecialchars($jenis['nama']) . '</a></li>';
-                  }
-              } else {
-                  echo '<li role="none"><a href="#" role="menuitem" class="dropdown-link">Tidak ada fasilitas tersedia</a></li>';
-              }
-              ?>
+            <li role="none"><a href="<?=BASE_URL?>/fasilitas/pendidikan" role="menuitem" class="dropdown-link">Pendikikan</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/fasilitas/kesehatan" role="menuitem" class="dropdown-link">Kesehatan</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/fasilitas/ibadah" role="menuitem" class="dropdown-link">Ibadah</a></li>
+              <li role="none"><a href="<?=BASE_URL?>/fasilitas/balaiwarga" role="menuitem" class="dropdown-link">Balai Warga</a></li>
             </ul>
           </li>
           <li><a href="<?=BASE_URL?>/berita" class="nav-link"><span class="material-icons nav-icon" aria-hidden="true">article</span> Berita</a></li>

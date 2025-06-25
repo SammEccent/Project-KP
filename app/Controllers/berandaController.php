@@ -4,7 +4,7 @@ require_once __DIR__ . '/../Models/FasilitasModel.php';
 class berandaController extends Controller {
     public function index() {
         // nav menu
-        $navMenu = (new FasilitasModel())->getAllJenis();
+        //$navMenu = (new FasilitasModel())->getAllJenis();
         // Send data to the view
         $data = [
             'pageTitle' => 'Beranda Kelurahan',
@@ -16,22 +16,12 @@ class berandaController extends Controller {
             'jsFiles' => [
                 'js/berandaSlideshow.js', // Script khusus untuk halaman beranda
             ],
-            'navMenu' => $navMenu,
+            //'navMenu' => $navMenu,
         ];
 
         // Load the beranda view
         $this->view('public/components/header', $data);
         $this->view('public/beranda');
         $this->view('public/components/footer');
-    }
-
-    public function sambutan() {
-        // Load the sambutan view
-        $this->view('beranda/sambutan');
-    }
-
-    public function layananCepat() {
-        // Load the layanan cepat view
-        $this->view('beranda/layananCepat');
     }
 }

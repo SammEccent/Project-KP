@@ -4,7 +4,7 @@ require_once __DIR__ . '/../Models/FasilitasModel.php';
 class sejarahController extends Controller{
     public function index(){
         // nav menu
-        $navMenu = (new FasilitasModel())->getAllJenis();
+        //$navMenu = (new FasilitasModel())->getAllJenis();
         // Send data to the view if needed
         $data = [
             'title' => 'Sejarah Kelurahan',
@@ -16,7 +16,7 @@ class sejarahController extends Controller{
             'jsFiles' =>[
                 'js/sejarah.js', // Untuk gaya konten utama halaman ini
             ],
-            'navMenu' => $navMenu,
+            //'navMenu' => $navMenu,
             
         
         ];

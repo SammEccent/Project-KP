@@ -2,7 +2,9 @@
 
 class strukturOrganisasiController extends Controller {
     public function index() {
-        // Send data to the view if needed
+        require_once '../app/Models/StrukturOrganisasi.php';
+        $strukturModel = new StrukturOrganisasi();
+        $struktur = $strukturModel->getAll();
         $data = [
             'pageTitle' => 'Struktur Organisasi Kelurahan',
             'cssFiles' => [
@@ -10,14 +12,12 @@ class strukturOrganisasiController extends Controller {
                 'css/components.css', // Untuk gaya header, footer, navigasi, dll.
                 'css/strukturOrganisasi.css'
             ],
-            //'jsFiles' => [
-                //'js/strukturOrganisasi.js', // Untuk gaya konten utama halaman ini
-            //],
+            'struktur' => $struktur
         ];
 
         // Load the strukturOrganisasi view
         $this->view('public/components/header', $data);
-        $this->view('public/profil/strukturOrganisasi');
+        $this->view('public/profil/strukturOrganisasi', $data);
         $this->view('public/components/footer', $data);
     }
 }

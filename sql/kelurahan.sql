@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jun 2025 pada 19.51
+-- Waktu pembuatan: 25 Jun 2025 pada 08.29
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -43,9 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password_hash`, `nama_lengkap`, `email`, `role`, `terakhir_login`, `dibuat_pada`) VALUES
-(1, 'superadmin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin Utama', 'superadmin@kelurahan.id', 'superadmin', NULL, '2025-06-23 23:00:16'),
-(2, 'editor1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Editor Pertama', 'editor1@kelurahan.id', 'editor', NULL, '2025-06-23 23:00:16'),
-(3, 'editor2', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Editor Kedua', 'editor2@kelurahan.id', 'editor', NULL, '2025-06-23 23:00:16');
+(1, 'superadmin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin Utama', 'superadmin@kelurahan.id', 'superadmin', NULL, '2025-06-23 23:00:16');
 
 -- --------------------------------------------------------
 
@@ -68,9 +66,11 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id`, `nama`, `foto`, `kontak`, `bio`, `status`, `dibuat_pada`) VALUES
-(1, 'H. Ahmad Subagja', 'uploads/profil/ahmad.jpg', '08123456789', NULL, 'active', '2025-06-23 16:38:25'),
-(2, 'Dewi Lestari', 'uploads/profil/dewi.jpg', '08234567890', NULL, 'active', '2025-06-23 16:38:25'),
-(3, 'Budi Santoso', 'uploads/profil/budi.jpg', '08345678901', NULL, 'active', '2025-06-23 16:38:25');
+(1, 'FERDIYANSYAH, SE.', 'img/struktur/anggota_1750828482.png', '-', 'LURAH WETAN', 'active', '2025-06-23 16:38:25'),
+(5, 'HARUN, S.Sos', 'img/struktur/anggota_1750828734.png', '-', 'SEKRETARIS KELURAHAN', 'active', '2025-06-25 05:18:54'),
+(6, 'DIAN NOVITASARI, SE.', 'img/struktur/anggota_1750828788.png', '-', 'KASI PEMERINTAHAN', 'active', '2025-06-25 05:19:48'),
+(7, 'ARIFUDDIN, S.Pdi.', 'img/struktur/anggota_1750828822.png', '-', 'KASI EKONOMI DAN PEMBANGUNAN', 'active', '2025-06-25 05:20:22'),
+(8, 'SATURI, SE.', 'img/struktur/anggota_1750828849.png', '-', 'KASI KESEJAHTERAAN SOSIAL', 'active', '2025-06-25 05:20:49');
 
 -- --------------------------------------------------------
 
@@ -99,9 +99,10 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id`, `slug`, `judul`, `isi_pendek`, `kategori_id`, `admin_id`, `status`, `tanggal_publish`, `dibuat_pada`, `diupdate_pada`, `is_headline`, `view_count`, `published_at`) VALUES
-(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 1, 136, '2025-06-24 00:17:48'),
+(1, 'pembangunan-jalan-desa', 'Pembangunan Jalan Desa Tahun 2024', 'Pemerintah Kelurahan memulai proyek pembangunan jalan sepanjang 2km untuk menghubungkan RW 01 dan RW 03.', 1, 1, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 0, 136, '2025-06-24 00:17:48'),
 (2, 'rencana-program-kerja', 'Rencana Program Kerja 2024', 'Program kerja desa untuk tahun 2024 telah disusun dan akan dilaksanakan mulai bulan depan.', 2, 2, 'published', '2025-06-23 23:02:17', '2025-06-23 23:02:17', NULL, 0, 59, '2025-06-24 00:17:48'),
-(3, 'kegiatan-gotong-royong', 'Kegiatan Gotong Royong Masyarakat', 'Warga desa akan melaksanakan gotong royong untuk membersihkan lingkungan pada akhir pekan.', 3, 1, 'draft', NULL, '2025-06-23 23:02:17', NULL, 0, 86, '2025-06-24 00:17:48');
+(3, 'kegiatan-gotong-royong', 'Kegiatan Gotong Royong Masyarakat', 'Warga desa akan melaksanakan gotong royong untuk membersihkan lingkungan pada akhir pekan.', 3, 1, 'draft', NULL, '2025-06-23 23:02:17', NULL, 0, 86, '2025-06-24 00:17:48'),
+(4, 'kerja-praktik-pembuatan-website-profil-di-kelurahan-lengkong-wetan-', 'Kerja Praktik Pembuatan Website Profil di Kelurahan Lengkong Wetan ', 'Program Magang Kerja Praktik', 2, 1, 'published', '2025-06-25 05:38:31', '2025-06-25 09:43:40', '2025-06-25 10:38:31', 1, 2, '2025-06-25 09:43:40');
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,9 @@ INSERT INTO `berita_content` (`id`, `berita_id`, `content_type`, `content`, `ord
 (3, 1, 'video_embed', 'https://www.youtube.com/embed/du7RdszMldE?si=hkq5AKzmP0dTQmWb', 3, 'Video dokumentasi pembangunan jalan'),
 (4, 2, 'text', 'Program kerja ini mencakup berbagai kegiatan yang akan dilaksanakan sepanjang tahun.', 1, NULL),
 (5, 2, 'image', 'C:xampp/htdocs/Project-KP/public/img/upload/berita.png', 2, 'Gambar rapat persiapan program kerja'),
-(6, 3, 'text', 'Kegiatan ini diharapkan dapat meningkatkan kebersihan dan kesehatan lingkungan.', 1, NULL);
+(6, 3, 'text', 'Kegiatan ini diharapkan dapat meningkatkan kebersihan dan kesehatan lingkungan.', 1, NULL),
+(9, 4, 'text', 'Belum lama ini Kelurahan sudah menjalin kerja sama dengan pihak Universitas pamulang untuk melakukan perubahan dalam informasi di daerah Lengkong Wetan yaitu pembuatan Website Profil Kelurahan yang bertujuan untuk memberikan infomasi kepada masyarakat secara transparan', 1, NULL),
+(10, 4, 'image', 'img/berita/berita_1750822711.jpg', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -194,7 +197,8 @@ INSERT INTO `jabatan` (`id`, `nama`, `level`, `deskripsi`, `dibuat_pada`) VALUES
 (1, 'Lurah', 1, 'Pimpinan tertinggi kelurahan', '2025-06-23 16:38:25'),
 (2, 'Sekretaris Kelurahan', 2, 'Penanggung jawab administrasi', '2025-06-23 16:38:25'),
 (3, 'Kepala Seksi Pemerintahan', 3, 'Bidang pemerintahan', '2025-06-23 16:38:25'),
-(4, 'Kepala Seksi Kesejahteraan', 3, 'Bidang kesejahteraan masyarakat', '2025-06-23 16:38:25');
+(4, 'Kepala Seksi Ekonomi dan Pembangunan', 3, 'Bidang Pembangan Ekonomi dan Pembangunan', '2025-06-23 16:38:25'),
+(5, 'Kepala Seksi Kesejahteraan Sosial', 3, 'Bidang Kesejahteraan Sosial', '2025-06-25 05:24:40');
 
 -- --------------------------------------------------------
 
@@ -270,10 +274,11 @@ CREATE TABLE `struktur_organisasi` (
 --
 
 INSERT INTO `struktur_organisasi` (`id`, `jabatan_id`, `anggota_id`, `atasan_id`, `urutan`, `dibuat_pada`) VALUES
-(1, 1, 1, NULL, 1, '2025-06-23 16:38:25'),
-(2, 2, 2, 1, 1, '2025-06-23 16:38:25'),
-(3, 3, NULL, 2, 1, '2025-06-23 16:38:25'),
-(4, 4, 3, 2, 2, '2025-06-23 16:38:25');
+(1, 1, 1, NULL, 1, '2025-06-23 09:38:25'),
+(2, 2, 5, 1, 2, '2025-06-23 09:38:25'),
+(3, 3, 6, 1, 3, '2025-06-23 09:38:25'),
+(4, 4, 7, 1, 3, '2025-06-23 09:38:25'),
+(5, 5, 8, 1, 3, '2025-06-25 05:42:37');
 
 --
 -- Indexes for dumped tables
@@ -363,31 +368,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `berita_content`
 --
 ALTER TABLE `berita_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis`
@@ -405,7 +410,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `struktur_organisasi`
 --
 ALTER TABLE `struktur_organisasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -4,69 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $data['pageTitle'] ?? 'Admin - Berita'; ?></title>
-    
     <?php if (isset($data['cssFiles']) && is_array($data['cssFiles'])): ?>
         <?php foreach ($data['cssFiles'] as $cssFile): ?>
             <link rel="stylesheet" href="<?= BASE_URL . '/public/' . $cssFile; ?>" />
         <?php endforeach; ?>
     <?php endif; ?>
+    <style>
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.3); justify-content: center; align-items: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: #fff; padding: 2rem; border-radius: 8px; min-width: 350px; max-width: 500px; width: 100%;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; }
+        .close-btn { background: none; border: none; font-size: 1.5em; cursor: pointer; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; }
+        .form-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+        .table-container { margin-top: 2rem; }
+        .btn { padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-primary { background: #1976d2; color: #fff; }
+        .btn-secondary { background: #aaa; color: #fff; }
+        .btn-warning { background: #ff9800; color: #fff; }
+        .btn-danger { background: #e53935; color: #fff; }
+        .badge { padding: 0.2em 0.7em; border-radius: 1em; font-size: 0.9em; }
+        .badge-success { background: #43a047; color: #fff; }
+        .badge-secondary { background: #aaa; color: #fff; }
+        .badge-primary { background: #1976d2; color: #fff; }
+    </style>
 </head>
 <body>
 <?php include 'sidebar.php'; ?>
 <div class="main" id="main">
     <div class="page-header">
         <h2>Manajemen Berita</h2>
-        <button class="btn btn-primary" onclick="showAddForm()">Tambah Berita</button>
+        <button class="btn btn-primary" onclick="showModal()">Tambah Berita</button>
     </div>
 
-    <!-- Form Tambah/Edit -->
-    <div id="formContainer" class="form-container" style="display: none;">
-        <div class="form-card">
-            <h3 id="formTitle">Tambah Berita</h3>
-            <form id="beritaForm" method="POST" action="<?= BASE_URL ?>/admin/berita/save" enctype="multipart/form-data">
+    <!-- Modal Form Tambah/Edit Berita -->
+    <div class="modal" id="beritaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Berita</h3>
+                <button class="close-btn" onclick="hideModal()">&times;</button>
+            </div>
+            <form id="beritaForm" method="POST" action="<?= BASE_URL ?>/admin/beritaSave" enctype="multipart/form-data">
                 <input type="hidden" id="editId" name="id" value="">
-                
                 <div class="form-group">
                     <label for="judul">Judul Berita:</label>
                     <input type="text" id="judul" name="judul" required class="form-control">
                 </div>
-                
                 <div class="form-group">
                     <label for="kategori">Kategori:</label>
                     <select id="kategori" name="kategori" required class="form-control">
                         <option value="">Pilih Kategori</option>
-                        <option value="pemerintahan">Pemerintahan</option>
-                        <option value="kesehatan">Kesehatan</option>
-                        <option value="pendidikan">Pendidikan</option>
-                        <option value="sosial">Sosial</option>
-                        <option value="ekonomi">Ekonomi</option>
-                        <option value="lingkungan">Lingkungan</option>
-                        <option value="umum">Umum</option>
+                        <?php if (!empty($data['categories'])): ?>
+                            <?php foreach ($data['categories'] as $kategori): ?>
+                                <option value="<?= $kategori['id'] ?>"><?= htmlspecialchars($kategori['nama']) ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
                 </div>
-                
-                <div class="form-group">
-                    <label for="gambar">Gambar Berita:</label>
-                    <input type="file" id="gambar" name="gambar" accept="image/*" class="form-control">
-                    <small class="form-text">Format: JPG, PNG, GIF. Maksimal 2MB</small>
-                </div>
-                
                 <div class="form-group">
                     <label for="ringkasan">Ringkasan:</label>
                     <textarea id="ringkasan" name="ringkasan" required class="form-control" rows="3" maxlength="200"></textarea>
-                    <small class="form-text">Maksimal 200 karakter</small>
                 </div>
-                
                 <div class="form-group">
                     <label for="isi">Isi Berita:</label>
-                    <textarea id="isi" name="isi" required class="form-control" rows="10"></textarea>
+                    <textarea id="isi" name="isi" required class="form-control" rows="8"></textarea>
                 </div>
-                
                 <div class="form-group">
-                    <label for="penulis">Penulis:</label>
-                    <input type="text" id="penulis" name="penulis" required class="form-control">
+                    <label for="gambar">Gambar Berita:</label>
+                    <input type="file" id="gambar" name="gambar" accept="image/*" class="form-control">
                 </div>
-                
                 <div class="form-group">
                     <label for="status">Status:</label>
                     <select id="status" name="status" required class="form-control">
@@ -74,192 +88,70 @@
                         <option value="published">Published</option>
                     </select>
                 </div>
-                
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <button type="button" class="btn btn-secondary" onclick="hideForm()">Batal</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideModal()">Batal</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Filter dan Pencarian -->
-    <div class="filter-container">
-        <div class="filter-row">
-            <div class="filter-group">
-                <label for="filterKategori">Filter Kategori:</label>
-                <select id="filterKategori" onchange="filterTable()" class="form-control">
-                    <option value="">Semua Kategori</option>
-                    <option value="pemerintahan">Pemerintahan</option>
-                    <option value="kesehatan">Kesehatan</option>
-                    <option value="pendidikan">Pendidikan</option>
-                    <option value="sosial">Sosial</option>
-                    <option value="ekonomi">Ekonomi</option>
-                    <option value="lingkungan">Lingkungan</option>
-                    <option value="umum">Umum</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="filterStatus">Filter Status:</label>
-                <select id="filterStatus" onchange="filterTable()" class="form-control">
-                    <option value="">Semua Status</option>
-                    <option value="published">Published</option>
-                    <option value="draft">Draft</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="searchBerita">Cari:</label>
-                <input type="text" id="searchBerita" placeholder="Cari judul berita..." onkeyup="searchTable()" class="form-control">
-            </div>
-        </div>
-    </div>
-
-    <!-- Tabel Data -->
+    <!-- Tabel Data Berita -->
     <div class="table-container">
         <table border="1" cellpadding="8" style="margin-top:16px;width:100%;">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Gambar</th>
                     <th>Judul</th>
                     <th>Kategori</th>
-                    <th>Penulis</th>
-                    <th>Tanggal</th>
+                    <th>Ringkasan</th>
                     <th>Status</th>
+                    <th>Tanggal</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody id="beritaTableBody">
-                <tr data-kategori="pemerintahan" data-status="published">
-                    <td>1</td>
-                    <td><img src="<?= BASE_URL ?>/public/img/berita1.jpg" alt="Berita 1" style="width:50px;height:50px;object-fit:cover;"></td>
-                    <td>Peresmian Balai Warga</td>
-                    <td><span class="badge badge-primary">Pemerintahan</span></td>
-                    <td>Admin Kelurahan</td>
-                    <td>2024-06-01</td>
-                    <td><span class="badge badge-success">Published</span></td>
-                    <td>
-                        <button class="btn btn-info" onclick="viewData(1)">Lihat</button>
-                        <button class="btn btn-warning" onclick="editData(1, 'Peresmian Balai Warga', 'pemerintahan', 'Peresmian balai warga baru untuk kegiatan masyarakat', 'Berita lengkap tentang peresmian balai warga...', 'Admin Kelurahan', 'published')">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteData(1)">Hapus</button>
-                    </td>
-                </tr>
-                <tr data-kategori="sosial" data-status="published">
-                    <td>2</td>
-                    <td><img src="<?= BASE_URL ?>/public/img/berita2.jpg" alt="Berita 2" style="width:50px;height:50px;object-fit:cover;"></td>
-                    <td>Pengajian Rutin</td>
-                    <td><span class="badge badge-info">Sosial</span></td>
-                    <td>Admin Kelurahan</td>
-                    <td>2024-05-20</td>
-                    <td><span class="badge badge-success">Published</span></td>
-                    <td>
-                        <button class="btn btn-info" onclick="viewData(2)">Lihat</button>
-                        <button class="btn btn-warning" onclick="editData(2, 'Pengajian Rutin', 'sosial', 'Pengajian rutin di masjid kelurahan', 'Berita lengkap tentang pengajian rutin...', 'Admin Kelurahan', 'published')">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteData(2)">Hapus</button>
-                    </td>
-                </tr>
-                <tr data-kategori="kesehatan" data-status="published">
-                    <td>3</td>
-                    <td><img src="<?= BASE_URL ?>/public/img/berita3.jpg" alt="Berita 3" style="width:50px;height:50px;object-fit:cover;"></td>
-                    <td>Pemeriksaan Kesehatan Gratis</td>
-                    <td><span class="badge badge-success">Kesehatan</span></td>
-                    <td>Admin Kelurahan</td>
-                    <td>2024-05-10</td>
-                    <td><span class="badge badge-success">Published</span></td>
-                    <td>
-                        <button class="btn btn-info" onclick="viewData(3)">Lihat</button>
-                        <button class="btn btn-warning" onclick="editData(3, 'Pemeriksaan Kesehatan Gratis', 'kesehatan', 'Pemeriksaan kesehatan gratis untuk warga', 'Berita lengkap tentang pemeriksaan kesehatan...', 'Admin Kelurahan', 'published')">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteData(3)">Hapus</button>
-                    </td>
-                </tr>
-                <tr data-kategori="pendidikan" data-status="draft">
-                    <td>4</td>
-                    <td><img src="<?= BASE_URL ?>/public/img/berita4.jpg" alt="Berita 4" style="width:50px;height:50px;object-fit:cover;"></td>
-                    <td>Program Beasiswa untuk Anak Berprestasi</td>
-                    <td><span class="badge badge-warning">Pendidikan</span></td>
-                    <td>Admin Kelurahan</td>
-                    <td>2024-05-05</td>
-                    <td><span class="badge badge-secondary">Draft</span></td>
-                    <td>
-                        <button class="btn btn-info" onclick="viewData(4)">Lihat</button>
-                        <button class="btn btn-warning" onclick="editData(4, 'Program Beasiswa untuk Anak Berprestasi', 'pendidikan', 'Program beasiswa untuk anak berprestasi', 'Berita lengkap tentang program beasiswa...', 'Admin Kelurahan', 'draft')">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteData(4)">Hapus</button>
-                    </td>
-                </tr>
+            <tbody>
+                <?php if (!empty($data['berita'])): ?>
+                    <?php $no = 1; foreach ($data['berita'] as $item): ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= htmlspecialchars($item['judul']) ?></td>
+                            <td><?= htmlspecialchars($item['kategori_nama']) ?></td>
+                            <td><?= htmlspecialchars($item['isi_pendek']) ?></td>
+                            <td><span class="badge <?= (isset($item['status']) && $item['status'] === 'published') ? 'badge-success' : 'badge-secondary' ?>"><?= isset($item['status']) ? htmlspecialchars($item['status']) : '-' ?></span></td>
+                            <td><?= htmlspecialchars($item['tanggal_publish']) ?></td>
+                            <td>
+                                <button class="btn btn-warning" onclick='editBerita(<?= json_encode($item) ?>)'>Edit</button>
+                                <a href="<?= BASE_URL ?>/admin/beritaDelete/<?= $item['id'] ?>" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus berita ini?')">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr><td colspan="7">Belum ada data berita.</td></tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
 </div>
-
 <script>
-function showAddForm() {
-    document.getElementById('formContainer').style.display = 'block';
-    document.getElementById('formTitle').textContent = 'Tambah Berita';
+function showModal() {
+    document.getElementById('beritaModal').classList.add('active');
+    document.getElementById('modalTitle').textContent = 'Tambah Berita';
     document.getElementById('beritaForm').reset();
     document.getElementById('editId').value = '';
 }
-
-function hideForm() {
-    document.getElementById('formContainer').style.display = 'none';
+function hideModal() {
+    document.getElementById('beritaModal').classList.remove('active');
 }
-
-function editData(id, judul, kategori, ringkasan, isi, penulis, status) {
-    document.getElementById('formContainer').style.display = 'block';
-    document.getElementById('formTitle').textContent = 'Edit Berita';
-    document.getElementById('editId').value = id;
-    document.getElementById('judul').value = judul;
-    document.getElementById('kategori').value = kategori;
-    document.getElementById('ringkasan').value = ringkasan;
-    document.getElementById('isi').value = isi;
-    document.getElementById('penulis').value = penulis;
-    document.getElementById('status').value = status;
-}
-
-function viewData(id) {
-    // Implementasi view berita
-    alert('Melihat berita dengan ID: ' + id);
-}
-
-function deleteData(id) {
-    if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
-        // Implementasi delete
-        alert('Berita berhasil dihapus!');
-        // Reload halaman atau update tabel
-    }
-}
-
-function filterTable() {
-    const kategoriFilter = document.getElementById('filterKategori').value;
-    const statusFilter = document.getElementById('filterStatus').value;
-    const rows = document.querySelectorAll('#beritaTableBody tr');
-    
-    rows.forEach(row => {
-        const kategori = row.getAttribute('data-kategori');
-        const status = row.getAttribute('data-status');
-        
-        const kategoriMatch = kategoriFilter === '' || kategori === kategoriFilter;
-        const statusMatch = statusFilter === '' || status === statusFilter;
-        
-        if (kategoriMatch && statusMatch) {
-            row.style.display = '';
-        } else {
-            row.style.display = 'none';
-        }
-    });
-}
-
-function searchTable() {
-    const searchTerm = document.getElementById('searchBerita').value.toLowerCase();
-    const rows = document.querySelectorAll('#beritaTableBody tr');
-    
-    rows.forEach(row => {
-        const judul = row.cells[2].textContent.toLowerCase();
-        if (judul.includes(searchTerm)) {
-            row.style.display = '';
-        } else {
-            row.style.display = 'none';
-        }
-    });
+function editBerita(item) {
+    showModal();
+    document.getElementById('modalTitle').textContent = 'Edit Berita';
+    document.getElementById('editId').value = item.id;
+    document.getElementById('judul').value = item.judul;
+    document.getElementById('kategori').value = item.kategori_id;
+    document.getElementById('ringkasan').value = item.isi_pendek;
+    document.getElementById('isi').value = item.isi ?? '';
+    document.getElementById('status').value = item.status;
 }
 </script>
 </body>
