@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
   <diagram name="Page-1" id="FtO0mubVL_rvBDDbJPN0">
-    <mxGraphModel dx="908" dy="740" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="582" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -22,10 +22,10 @@
         <mxCell id="WcnE4tsYdCxvGBwCwPJD-30" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="WcnE4tsYdCxvGBwCwPJD-17" vertex="1">
           <mxGeometry x="21" y="85" width="10" height="65" as="geometry" />
         </mxCell>
-        <mxCell id="61AwvKYk8WVq_4ovVTUT-1" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="WcnE4tsYdCxvGBwCwPJD-17">
+        <mxCell id="61AwvKYk8WVq_4ovVTUT-1" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="WcnE4tsYdCxvGBwCwPJD-17" vertex="1">
           <mxGeometry x="21" y="357" width="10" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="WcnE4tsYdCxvGBwCwPJD-69" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1" target="61AwvKYk8WVq_4ovVTUT-1">
+        <mxCell id="WcnE4tsYdCxvGBwCwPJD-69" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="61AwvKYk8WVq_4ovVTUT-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="486.5000000000002" y="447" as="sourcePoint" />
             <mxPoint x="271.07142857142844" y="447" as="targetPoint" />
@@ -61,11 +61,11 @@
         <mxCell id="WcnE4tsYdCxvGBwCwPJD-24" value="Halaman Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="222" y="125" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WcnE4tsYdCxvGBwCwPJD-25" value="Proses Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
-          <mxGeometry x="442" y="125" width="90" height="30" as="geometry" />
+        <mxCell id="WcnE4tsYdCxvGBwCwPJD-25" value="AdminController" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="432" y="125" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WcnE4tsYdCxvGBwCwPJD-26" value="Database" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
-          <mxGeometry x="628" y="125" width="70" height="30" as="geometry" />
+        <mxCell id="WcnE4tsYdCxvGBwCwPJD-26" value="UserModel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="623" y="125" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WcnE4tsYdCxvGBwCwPJD-27" value="Beranda Admin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="709" y="125" width="110" height="30" as="geometry" />
@@ -92,7 +92,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="WcnE4tsYdCxvGBwCwPJD-51" value="loginForm(username,password)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="279" y="217" width="190" height="30" as="geometry" />
+          <mxGeometry x="279" y="219" width="190" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WcnE4tsYdCxvGBwCwPJD-60" value="validate(username,password)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" target="WcnE4tsYdCxvGBwCwPJD-59" edge="1">
           <mxGeometry relative="1" as="geometry">
