@@ -1,7 +1,10 @@
 <?php
+require_once __DIR__ . '/../Models/FasilitasModel.php';
 
 class berandaController extends Controller {
     public function index() {
+        // nav menu
+        $navMenu = (new FasilitasModel())->getAllJenis();
         // Send data to the view
         $data = [
             'pageTitle' => 'Beranda Kelurahan',
@@ -13,6 +16,7 @@ class berandaController extends Controller {
             'jsFiles' => [
                 'js/berandaSlideshow.js', // Script khusus untuk halaman beranda
             ],
+            'navMenu' => $navMenu,
         ];
 
         // Load the beranda view

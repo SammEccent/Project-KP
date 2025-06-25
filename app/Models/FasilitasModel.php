@@ -5,6 +5,12 @@ class FasilitasModel{
     public function __construct(){
         $this->db = new Database();
     }
+
+    // get all nama from jenis table
+    public function getAllJenis(){
+        $this->db->prepare("SELECT nama FROM jenis ORDER BY nama ASC");
+        return $this->db->fetchAll();
+    }
     // DONT USE QUERY, USE PREPARE INSTEAD
     // the facilities table has a "jenis_id" which is a FK of "nama" which is in the jenis table
     // get all fasilitas pendidikan
