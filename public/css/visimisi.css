@@ -1,0 +1,352 @@
+/* Import Google Fonts Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+/* Import Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Import Animate.css for animation */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+@import url("https://unpkg.com/normalize.css") layer(normalize);
+
+
+@layer normalize, base, demo;
+
+@layer demo {
+    :root {
+        --accent: black;
+        --canvas: color-mix(in lch, canvas, canvasText 1%);
+        --border: color-mix(in lch, canvas, canvasText 10%);
+        --text: color-mix(in lch, canvasText, canvas 25%);
+        --border-radius: 24;
+        --border-width: 3;
+        --trail-size: 25;
+    }
+
+    .visimisi-container main * {
+        transform-style: preserve-3d;
+    }
+
+    .visimisi-container .aside-title {
+        text-align: center;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #34495e !important;
+    }
+
+    .visimisi-container h1.aside-title {
+        color: #34495e !important;
+    }
+
+    .visimisi-container aside {
+        --font-level: 1;
+        width: 66ch;
+        max-width: calc(100vw - 4rem);
+        line-height: 1.5;
+        container-type: inline-size;
+        position: relative;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        transition: transform var(--t) calc(var(--d) * 2);
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .visimisi-container .border {
+        position: absolute;
+        inset: 0;
+        clip-path: inset(0 0 0 0 round calc(var(--border-radius) * 1px));
+        border-radius: calc(var(--border-radius) * 1px);
+        background: var(--border);
+        z-index: -1;
+        border: 0;
+        container-type: inline-size;
+        transition: clip-path var(--t);
+    }
+
+    .visimisi-container .trail {
+        width: calc(var(--trail-size) * 1cqmin);
+        aspect-ratio: 2 / 1;
+        position: absolute;
+        background: radial-gradient(100% 100% at right,
+                var(--accent, red),
+                transparent 50%);
+        offset-path: border-box;
+        offset-anchor: 100% 50%;
+        animation: journey var(--speed, 6s) infinite linear;
+    }
+
+    @container (width > 600px) {
+        .visimisi-container .trail {
+            --speed: 12s;
+        }
+    }
+
+    @keyframes journey {
+        to {
+            offset-distance: 100%;
+        }
+    }
+
+    .visimisi-container .content {
+        background: linear-gradient(var(--canvas), var(--canvas)) padding-box,
+            transparent;
+        border: calc(var(--border-width) * 1px) solid transparent;
+        border-radius: calc(var(--border-radius) * 1px);
+        padding: clamp(1rem, 3vmin + 1rem, 6rem);
+        display: grid;
+        gap: clamp(1rem, 3vmin + 1rem, 4rem);
+        transition: transform var(--t) calc(var(--d) * 1),
+            opacity calc(var(--t) * 0.5) calc(var(--d) * 0.5);
+    }
+
+    .visimisi-container aside p {
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        color: var(--text);
+    }
+
+    .visimisi-container aside footer {
+        --font-level: 0.5;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        gap: 0.5rem 1rem;
+    }
+
+    .visimisi-container aside img {
+        width: 2.5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+    }
+
+    /* 3D effect for explode */
+    [data-explode="true"] .visimisi-container aside {
+        transform: scale(0.75) rotateX(-24deg) rotateY(30deg);
+        transition: transform var(--t);
+    }
+
+    [data-explode="true"] .visimisi-container .border {
+        transition: clip-path var(--t) calc(var(--d) * 2);
+        clip-path: inset(-100% -100% -100% -100% round calc(var(--border-radius) * 1px));
+    }
+
+    [data-explode="true"] .visimisi-container .content {
+        transition: transform var(--t) calc(var(--d) * 1),
+            opacity calc(var(--t) * 0.5) calc(var(--d) * 1.5);
+        transform: translate3d(0, 0, 400px);
+        opacity: 0;
+    }
+}
+
+@layer base {
+    :root {
+        --font-size-min: 17;
+        --font-size-max: 20;
+        --font-ratio-min: 1.2;
+        --font-ratio-max: 1.33;
+        --font-width-min: 320;
+        --font-width-max: 1500;
+    }
+
+    :where(.fluid) {
+        --fluid-min: calc(var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0)));
+        --fluid-max: calc(var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0)));
+        --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max) - var(--font-width-min)));
+        --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,
+                ((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+                (var(--fluid-max) / 16) * 1rem);
+        font-size: var(--fluid-type);
+    }
+
+    *,
+    *:after,
+    *:before {
+        box-sizing: border-box;
+    }
+}
+
+/* --- Infographic Section --- */
+
+.visimisi-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.visimisi-container h1 {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-top: 8px;
+    transform: scale(2, 3);
+}
+
+.visimisi-container h2 {
+    margin: 40px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.visimisi-container .box {
+    box-shadow: 0px 12px 6px -6px rgba(41, 41, 41, 0.25);
+    padding: 0;
+}
+
+.visimisi-container .box p {
+    font-weight: 300;
+    padding-top: 25px;
+}
+
+.visimisi-container .step1 {
+    z-index: 999;
+}
+
+.visimisi-container .step2 .animated {
+    animation-delay: 1s;
+    position: relative;
+    top: -6px;
+}
+
+.visimisi-container .step3 .animated {
+    animation-delay: 2s;
+    z-index: -3;
+    position: relative;
+    top: -12px;
+}
+
+.visimisi-container .step4 .animated {
+    animation-delay: 3s;
+    z-index: -5;
+    position: relative;
+    top: -18px;
+}
+
+.visimisi-container .shape {
+    width: 150px;
+    height: 120px;
+    transform: skew(20deg);
+    box-shadow: 0px 12px 30px -6px rgba(41, 41, 41, 0.25);
+    top: 10px;
+    left: 8px;
+    text-align: center;
+}
+
+.visimisi-container .shape-1 .shape {
+    background: #e74c3c;
+}
+
+.visimisi-container .shape-1 .material-icons {
+    color: #e74c3c;
+}
+
+.visimisi-container .shape-2 .shape {
+    background: #34495e;
+}
+
+.visimisi-container .shape-2 .material-icons {
+    color: #34495e;
+}
+
+.visimisi-container .shape-3 .shape {
+    background: #f39c12;
+}
+
+.visimisi-container .shape-3 .material-icons {
+    color: #f39c12;
+}
+
+.visimisi-container .shape-4 .shape {
+    background: #3498db;
+}
+
+.visimisi-container .shape-4 .material-icons {
+    color: #3498db;
+}
+
+.visimisi-container .number {
+    transform: skew(-20deg);
+}
+
+.visimisi-container .md-56 {
+    font-size: 56px;
+    padding-top: 30px;
+}
+
+.visimisi-container .continue .btn {
+    margin-top: 40px;
+    animation-delay: 4s;
+}
+
+/* Membatasi deskripsi info grafik maksimal 2 baris dan menambah ellipsis jika lebih */
+.visimisi-container .row.box .explanation,
+.visimisi-container .row.box>div.explanation,
+.visimisi-container .row.box>.col-xs-5,
+.visimisi-container .row.box>.col-xs-5.col-xs-offset-1,
+.visimisi-container .row.box>.col-sm-4.col-sm-offset-1,
+.visimisi-container .row.box>.col-md-4.col-md-offset-1 {
+    font-size: 1.15rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* Membuat .row.box memiliki lebar maksimal tetap dan proporsi komponen konsisten */
+.visimisi-container .row.box {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.visimisi-container .row.box>.shape {
+    flex: 0 0 120px;
+    max-width: 120px;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visimisi-container .row.box>.explanation {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 60%;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.visimisi-container .row.box>.icon-right {
+    flex: 0 0 60px;
+    max-width: 60px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 1.5rem;
+}
+
+.footer {
+    margin-top: auto; }

@@ -1,0 +1,2 @@
+<?php
+// Konfigurasi umum aplikasi

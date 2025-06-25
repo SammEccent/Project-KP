@@ -1,0 +1,58 @@
+/* Fasilitas Table Styles - Isolated from global styles */
+
+body {
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+
+
+.fasilitas-container {
+    max-width: 900px;
+    margin: 48px auto 48px auto;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.tabel-fasilitas {
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.tabel-fasilitas th,
+.tabel-fasilitas td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.tabel-fasilitas th {
+    text-align: left;
+}
+
+.tabel-fasilitas thead th {
+    background-color: #55608f;
+}
+
+.tabel-fasilitas tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tabel-fasilitas tbody td {
+    position: relative;
+}
+
+.tabel-fasilitas tbody td:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}

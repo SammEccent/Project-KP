@@ -1,0 +1,7 @@
+{
+  "name": "web-kelurahan/project",
+  "description": "Web Kelurahan Project",
+  "require": {
+    "nikic/fast-route": "^1.3"
+  }
+}

@@ -1,0 +1,72 @@
+body {
+    background: #f4f6f8;
+}
+
+.sidebar {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.07);
+}
+
+.sidebar a {
+    font-size: 1.1em;
+}
+
+.sidebar .toggle-btn {
+    background: #007bff;
+}
+
+.main {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    margin: 30px 20px 20px 240px;
+    padding: 30px;
+    min-height: 80vh;
+}
+
+.main.closed {
+    margin-left: 80px;
+}
+
+h1,
+h2 {
+    color: #222;
+}
+
+table {
+    border-collapse: collapse;
+    background: #fafbfc;
+}
+
+table th,
+table td {
+    padding: 12px 8px;
+}
+
+table th {
+    background: #007bff;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #f0f4f8;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+@media (max-width:600px) {
+    .main {
+        margin: 10px;
+    }
+}

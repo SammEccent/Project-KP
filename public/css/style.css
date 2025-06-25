@@ -1,0 +1,86 @@
+/* Reset and base */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: clamp(14px, 1.2vw, 18px);
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f3f4f6, #d1d5db);
+    color: #111827;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 3px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+}
+
+
+/* Custom scrollbar for dropdown and mobile nav */
+.dropdown-menu,
+.nav-list-active {
+    scrollbar-width: thin;
+    scrollbar-color: #a5b4fc transparent;
+}
+
+.dropdown-menu::-webkit-scrollbar,
+.nav-list-active::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb,
+.nav-list-active::-webkit-scrollbar-thumb {
+    background-color: #a5b4fc;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+/* Reduced motion for prefers-reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
