@@ -6,6 +6,14 @@ class BeritaModel {
         $this->db = new Database(); // Sesuaikan dengan konfigurasi Anda
     }
 
+    // hitung total berita
+    public function countTotalNews() {
+        $this->db->prepare("SELECT COUNT(*) AS total FROM berita ");
+        $this->db->execute();
+        $result = $this->db->fetch();
+        return isset($result['total']) ? (int)$result['total'] : 0;
+    }
+
     // Untuk Kategori Berita
     public function getAllCategories() {
         $this->db->prepare("SELECT * FROM kategori ORDER BY nama ASC");

@@ -1,22 +1,38 @@
-</li>
-      <li>
-        <h2 class="level-2 rectangle">Lisa Chen - Direktur Pemasaran</h2>
-        <ol class="level-3-wrapper">
-          <li>
-            <h3 class="level-3 rectangle">Robert Brown - Manajer Digital</h3>
-            <ol class="level-4-wrapper">
-              <li><h4 class="level-4 rectangle">Fajar Setiawan - SEO Specialist</h4></li>
-              <li><h4 class="level-4 rectangle">Gita Permata - Content Writer</h4></li>
-            </ol>
-          </li>
-          <li>
-            <h3 class="level-3 rectangle">Emily Davis - Manajer Produk</h3>
-            <ol class="level-4-wrapper">
-              <li><h4 class="level-4 rectangle">Hendra Kurnia - UX Designer</h4></li>
-              <li><h4 class="level-4 rectangle">Indah Sari - Product Analyst</h4></li>
-            </ol>
-          </li>
-        </ol>
-      </li>
-    </ol>
-  </div>
+<div class="content">
+    <h1>Responsive Organization Chart</h1>
+    <div class="org-chart-wrapper">
+        <figure class="org-chart cf">
+            <ul class="administration">
+                <li>
+                    <ul class="director">
+                        <li>
+                            <a href="#"><span>Director</span></a>
+                            <!-- subdirector dikosongkan jika tidak ada asisten -->
+                            <ul class="subdirector"></ul>
+                            <ul class="departments cf">
+                                <li class="department dep-admin">
+                                    <a href="#"><span>Administration</span></a>
+                                </li>
+                                <li class="department dep-a">
+                                    <a href="#"><span>Department A</span></a>
+                                </li>
+                                <li class="department dep-b">
+                                    <a href="#"><span>Department B</span></a>
+                                </li>
+                                <li class="department dep-c">
+                                    <a href="#"><span>Department C</span></a>
+                                </li>
+                                <li class="department dep-d">
+                                    <a href="#"><span>Department D</span></a>
+                                </li>
+                                <li class="department dep-e">
+                                    <a href="#"><span>Department E</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </figure>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 <?php
+require_once '../app/Models/StrukturOrganisasi.php';
 class AdminController extends Controller {
     private $userModel;
     public function __construct() {
@@ -7,13 +8,9 @@ class AdminController extends Controller {
     public function dashboard() {
         $this->requireLogin();
         // Struktur Organisasi
-        require_once '../app/Models/StrukturOrganisasi.php';
-        $strukturModel = new \App\Models\StrukturOrganisasi();
-        $totalStruktur = 0;
-        if (method_exists($strukturModel, 'getAll')) {
-            $allStruktur = $strukturModel->getAll();
-            $totalStruktur = is_array($allStruktur) ? count($allStruktur) : 0;
-        }
+        $strukturModel = new StrukturOrganisasi();
+        $allStruktur = $strukturModel->getAll();
+        $totalStruktur = is_array($allStruktur) ? count($allStruktur) : 0;
 
         // Fasilitas
         $totalFasilitas = 0;
@@ -25,13 +22,10 @@ class AdminController extends Controller {
             $totalFasilitas = $result['total'];
         }
 
-        // Berita (sementara 0, bisa diubah jika sudah ada tabel/model berita)
-        $totalBerita = 0;
-        // $db->prepare('SELECT COUNT(*) as total FROM berita');
-        // $result = $db->fetch();
-        // if ($result && isset($result['total'])) {
-        //     $totalBerita = $result['total'];
-        // }
+        // Berita
+        require_once '../app/Models/BeritaModel.php';
+        $beritaModel = new BeritaModel();
+        $totalBerita = $beritaModel->countTotalNews();
 
         $data = [
             'pageTitle' => 'Admin Dashboard',

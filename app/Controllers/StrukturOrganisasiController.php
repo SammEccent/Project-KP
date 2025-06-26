@@ -1,8 +1,7 @@
 <?php
-
+require_once '../app/Models/StrukturOrganisasi.php';
 class strukturOrganisasiController extends Controller {
     public function index() {
-        require_once '../app/Models/StrukturOrganisasi.php';
         $strukturModel = new StrukturOrganisasi();
         $struktur = $strukturModel->getAll();
         $data = [
@@ -18,6 +17,6 @@ class strukturOrganisasiController extends Controller {
         // Load the strukturOrganisasi view
         $this->view('public/components/header', $data);
         $this->view('public/profil/strukturOrganisasi', $data);
-        $this->view('public/components/footer', $data);
+        $this->view('public/components/footer');
     }
 }

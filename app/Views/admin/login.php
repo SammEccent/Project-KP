@@ -10,7 +10,7 @@
     <style>
         body {
             min-height: 100vh;
-            background: url('<?= BASE_URL ?>/public/img/kantor.jpg') no-repeat center center fixed;
+            background: url('<?= BASE_URL ?>/public/img/slideshow/kantor.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Inter', sans-serif;
             display: flex;

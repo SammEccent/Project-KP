@@ -6,10 +6,10 @@
   <title><?php echo $data['pageTitle'] ?? 'Kelurahan Lengkong Wetan'; ?></title>
   
   <?php if (isset($data['cssFiles']) && is_array($data['cssFiles'])): ?>
-      <?php foreach ($data['cssFiles'] as $cssFile): ?>
-          <link rel="stylesheet" href="<?= BASE_URL . '/' . $cssFile; ?>" />
-      <?php endforeach; ?>
-  <?php endif; ?>
+    <?php foreach ($data['cssFiles'] as $cssFile): ?>
+        <link rel="stylesheet" href="<?= BASE_URL . '/public/' . $cssFile; ?>" />
+    <?php endforeach; ?>
+<?php endif; ?>
 
   <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
